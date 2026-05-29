@@ -110,8 +110,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     labels: ['Invested Amount', 'Estimated Returns'],
                     datasets: [{
                         data: [invested, returns],
-                        backgroundColor: ['#2563eb', '#60a5fa'],
-                        borderColor: ['#1d4ed8', '#3b82f6'],
+                        backgroundColor: ['#1a56db', '#0ea5e9'],
+                        borderColor: ['#1341a8', '#0284c7'],
                         borderWidth: 2,
                         hoverOffset: 8
                     }]
