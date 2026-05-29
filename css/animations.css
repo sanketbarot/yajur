@@ -1,72 +1,186 @@
 /* ============================================
-   NANDIINDIA - ANIMATIONS STYLESHEET
-   Blue & White Light Theme - No Scroll Animations
+   NANDIINDIA - ANIMATIONS CSS
+   Purple & Orange Theme
+   Version 3.0
    ============================================ */
 
-/* ===== ALL ANIMATE CLASSES: VISIBLE BY DEFAULT ===== */
-/* No scroll-triggered fade-in/out — content is always visible */
+/* ===== ALL ANIMATE CLASSES VISIBLE ===== */
 .animate-fade-up,
 .animate-fade-left,
 .animate-on-scroll,
 .animate-on-scroll.animated {
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
-    animation: none !important;
+    opacity: 1;
+    transform: none;
 }
-
-/* ===== ANIMATION DELAYS: NOT USED (no animations) ===== */
-.delay-1, .delay-2, .delay-3, .delay-4, .delay-5, .delay-6 {
+.delay-1, .delay-2, .delay-3,
+.delay-4, .delay-5, .delay-6 {
     animation-delay: 0s;
 }
 
 /* ===== TYPING CURSOR ===== */
 @keyframes blink {
+    0%, 100% { opacity: 1; }
     50% { opacity: 0; }
 }
 .typing-cursor {
-    animation: blink 1s step-end infinite;
+    animation: blink 1s steps(2, start) infinite;
 }
 
-/* ===== MARQUEE SCROLL (Trust Bar) ===== */
+/* ===== MARQUEE ===== */
 @keyframes marqueeScroll {
     from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
+    to   { transform: translateX(-50%); }
 }
 .marquee-content {
-    animation: marqueeScroll 25s linear infinite;
+    animation: marqueeScroll 28s linear infinite;
+    will-change: transform;
 }
 .trust-marquee:hover .marquee-content {
     animation-play-state: paused;
 }
 
-/* ===== PRELOADER SPINNER ===== */
+/* ===== MARKET TICKER ===== */
+@keyframes tickerScroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+.ticker-content {
+    animation: tickerScroll 32s linear infinite;
+    will-change: transform;
+}
+.market-ticker:hover .ticker-content {
+    animation-play-state: paused;
+}
+
+/* ===== SPINNER ===== */
 @keyframes spin {
     to { transform: rotate(360deg); }
 }
 .loader-ring {
     animation: spin 1s linear infinite;
+    will-change: transform;
 }
 
-/* ===== RIPPLE EFFECT ON BUTTON CLICKS ===== */
+/* ===== RIPPLE ===== */
 @keyframes rippleEffect {
     to { transform: scale(4); opacity: 0; }
 }
+.btn { position: relative; overflow: hidden; }
+.btn .ripple {
+    position: absolute;
+    border-radius: 50%;
+    transform: scale(0);
+    animation: rippleEffect 0.6s linear;
+    pointer-events: none;
+}
 
-/* ===== STAGGER: just spacing, no motion ===== */
-.services-grid .service-card,
-.about-cards .about-card,
-.why-grid .why-card,
-.plans-grid .plan-card {
-    transition: none !important;
-    transition-delay: 0s !important;
+/* ===== PULSE — Live dot ===== */
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50%       { transform: scale(1.45); opacity: 0.65; }
+}
+.live-dot  { animation: pulse 2s ease infinite; }
+.badge-dot { animation: pulse 2.4s ease infinite; }
+
+/* ===== FLOAT — Hero cards ===== */
+@keyframes floatY {
+    0%, 100% { transform: translateY(0px); }
+    50%       { transform: translateY(-8px); }
+}
+.card-sip     { animation: floatY 3.2s ease-in-out infinite; }
+.card-clients { animation: floatY 3.8s ease-in-out infinite 0.5s; }
+.card-secure  { animation: floatY 3.5s ease-in-out infinite 1s; }
+.card-live    { animation: floatY 4s ease-in-out infinite 0.3s; }
+
+/* ===== HOVER: cards ===== */
+.service-card,
+.plan-card,
+.why-card,
+.blog-card,
+.vt-card,
+.about-card,
+.goal-card {
+    transition:
+        transform 0.22s cubic-bezier(0.4,0,0.2,1),
+        box-shadow 0.22s cubic-bezier(0.4,0,0.2,1),
+        border-color 0.22s cubic-bezier(0.4,0,0.2,1) !important;
+}
+
+/* ===== TOAST SLIDE IN ===== */
+@keyframes slideInRight {
+    from { transform: translateX(120%); opacity: 0; }
+    to   { transform: translateX(0);    opacity: 1; }
+}
+.toast.show {
+    animation: slideInRight 0.4s
+        cubic-bezier(0.4,0,0.2,1) forwards;
+}
+
+/* ===== COOKIE BAR SLIDE UP ===== */
+@keyframes slideUp {
+    from { transform: translate(-50%, 60px); opacity: 0; }
+    to   { transform: translate(-50%, 0);    opacity: 1; }
+}
+.cookie-bar.visible {
+    animation: slideUp 0.4s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+
+/* ===== QUIZ PROGRESS ===== */
+.qp-fill {
+    transition: width 0.4s cubic-bezier(0.4,0,0.2,1) !important;
+}
+
+/* ===== SHIMMER (skeleton) ===== */
+@keyframes shimmer {
+    0%   { background-position: -200% 0; }
+    100% { background-position:  200% 0; }
+}
+.skeleton {
+    background: linear-gradient(
+        90deg,
+        rgba(124,58,237,0.05) 25%,
+        rgba(124,58,237,0.10) 50%,
+        rgba(124,58,237,0.05) 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.6s infinite;
+    border-radius: 6px;
+}
+
+/* ===== GLOW PULSE (featured plan card) ===== */
+@keyframes glowPulse {
+    0%, 100% { box-shadow: 0 0 28px rgba(124,58,237,0.28); }
+    50%       { box-shadow: 0 0 44px rgba(124,58,237,0.44); }
+}
+.plan-card.featured {
+    animation: glowPulse 3s ease infinite;
+}
+
+/* ===== SCROLL WHEEL ===== */
+@keyframes scrollWheel {
+    0%   { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(12px); opacity: 0; }
+}
+.scroll-wheel {
+    animation: scrollWheel 1.6s ease infinite;
 }
 
 /* ===== REDUCED MOTION ===== */
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
+        animation: none !important;
+        transition: none !important;
+    }
+    .marquee-content,
+    .ticker-content,
+    .live-dot,
+    .badge-dot,
+    .card-sip,
+    .card-clients,
+    .card-secure,
+    .card-live,
+    .plan-card.featured,
+    .scroll-wheel {
+        animation: none !important;
     }
 }

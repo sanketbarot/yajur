@@ -10,603 +10,46 @@
     <meta property="og:title" content="NandiIndia | Smart Investments with NJ Wealth">
     <meta property="og:description" content="Start SIP today and build long-term wealth with trusted financial guidance.">
     <meta property="og:type" content="website">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    <link rel="stylesheet" href="css/animations.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <meta property="og:image" content="https://nandiindia.com/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <!-- ===== THEME OVERRIDE: Blue & White Light Theme (No Animations) ===== -->
-    <style>
-        /* ---- RESET ALL ANIMATIONS ---- */
-        *, *::before, *::after {
-            animation: none !important;
-            transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease !important;
-        }
-        .animate-fade-up, .animate-fade-left, .animate-on-scroll {
-            opacity: 1 !important;
-            transform: none !important;
-        }
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
 
-        /* ---- HIDE PRELOADER IMMEDIATELY ---- */
-        #preloader { display: none !important; }
-
-        /* ---- CSS VARIABLES: Blue & White Light Theme ---- */
-        :root {
-            --primary: #1a56db;
-            --primary-dark: #1341a8;
-            --primary-light: #3b82f6;
-            --accent: #0ea5e9;
-            --accent2: #0284c7;
-            --bg-main: #f0f6ff;
-            --bg-white: #ffffff;
-            --bg-card: #ffffff;
-            --bg-section-alt: #eef4ff;
-            --text-dark: #0f1e3d;
-            --text-body: #334155;
-            --text-muted: #64748b;
-            --border: #c7d9f5;
-            --shadow-sm: 0 2px 8px rgba(26,86,219,0.08);
-            --shadow-md: 0 4px 20px rgba(26,86,219,0.12);
-            --shadow-lg: 0 8px 40px rgba(26,86,219,0.16);
-            --gradient-primary: linear-gradient(135deg, #1a56db 0%, #0ea5e9 100%);
-            --gradient-hero: linear-gradient(135deg, #dbeafe 0%, #eff6ff 50%, #e0f2fe 100%);
-            --radius: 12px;
-        }
-
-        /* ---- BODY ---- */
-        body {
-            background: var(--bg-main) !important;
-            color: var(--text-body) !important;
-            font-family: 'Poppins', sans-serif !important;
-        }
-
-        /* ---- SCROLL PROGRESS BAR ---- */
-        .scroll-progress {
-            background: var(--gradient-primary) !important;
-            height: 3px;
-        }
-
-        /* ---- NAVBAR ---- */
-        .navbar {
-            background: rgba(255,255,255,0.95) !important;
-            backdrop-filter: blur(12px) !important;
-            border-bottom: 1px solid var(--border) !important;
-            box-shadow: var(--shadow-sm) !important;
-        }
-        .navbar.scrolled {
-            background: #fff !important;
-            box-shadow: var(--shadow-md) !important;
-        }
-        .nav-link {
-            color: var(--text-dark) !important;
-        }
-        .nav-link:hover, .nav-link.active {
-            color: var(--primary) !important;
-        }
-        .logo-main { color: var(--primary) !important; }
-        .logo-sub { color: var(--text-muted) !important; }
-        .logo-icon {
-            background: var(--gradient-primary) !important;
-            color: #fff !important;
-        }
-        .nav-cta {
-            background: var(--gradient-primary) !important;
-            color: #fff !important;
-            border-radius: 8px !important;
-        }
-        .nav-phone { color: var(--primary) !important; }
-        .hamburger span { background: var(--primary) !important; }
-
-        /* ---- HERO SECTION ---- */
-        .hero {
-            background: var(--gradient-hero) !important;
-            min-height: 100vh;
-            position: relative;
-        }
-        .hero-gradient { background: transparent !important; }
-        .hero-grid-pattern { opacity: 0.06 !important; }
-        .hero-particles { display: none !important; }
-        .shape { background: rgba(26,86,219,0.07) !important; }
-        .hero-badge {
-            background: rgba(26,86,219,0.08) !important;
-            border: 1px solid rgba(26,86,219,0.2) !important;
-            color: var(--primary) !important;
-        }
-        .badge-dot { background: var(--primary) !important; }
-        .hero-title, .title-line { color: var(--text-dark) !important; }
-        .gradient-text {
-            background: var(--gradient-primary) !important;
-            -webkit-background-clip: text !important;
-            -webkit-text-fill-color: transparent !important;
-            background-clip: text !important;
-        }
-        .typing-prefix { color: var(--text-body) !important; }
-        .typing-text { color: var(--primary) !important; }
-        .typing-cursor { color: var(--primary) !important; }
-        .hero-subtitle { color: var(--text-body) !important; }
-        .trust-stars i { color: #f59e0b !important; }
-        .trust-info span { color: var(--text-body) !important; }
-        .trust-avatar {
-            background: var(--primary-light) !important;
-            color: #fff !important;
-            border: 2px solid #fff !important;
-        }
-        .trust-count { background: var(--primary) !important; font-size: 0.7rem !important; }
-
-        /* Hero Cards */
-        .hero-card, .main-card {
-            background: #fff !important;
-            border: 1px solid var(--border) !important;
-            box-shadow: var(--shadow-md) !important;
-            color: var(--text-dark) !important;
-        }
-        .card-glow { display: none !important; }
-        .card-label { color: var(--text-muted) !important; }
-        .card-badge.positive {
-            background: #dcfce7 !important;
-            color: #16a34a !important;
-        }
-        .card-value { color: var(--primary) !important; font-weight: 700; }
-        .card-meta { color: var(--text-muted) !important; }
-        .card-meta strong { color: var(--primary) !important; }
-        .floating-card {
-            background: #fff !important;
-            border: 1px solid var(--border) !important;
-            box-shadow: var(--shadow-md) !important;
-        }
-        .floating-card i { color: var(--primary) !important; }
-        .fc-label { color: var(--text-muted) !important; }
-        .fc-value { color: var(--text-dark) !important; font-weight: 700; }
-        .live-dot { background: #22c55e !important; }
-
-        /* Hero Stats */
-        .hero-stats {
-            background: #fff !important;
-            border-top: 1px solid var(--border) !important;
-            box-shadow: none !important;
-        }
-        .stat-item { border-right: 1px solid var(--border) !important; }
-        .stat-icon { color: var(--primary) !important; }
-        .stat-number { color: var(--primary) !important; font-weight: 800; }
-        .stat-suffix { color: var(--text-body) !important; }
-        .stat-label { color: var(--text-muted) !important; }
-
-        /* Scroll indicator */
-        .scroll-mouse { border-color: var(--primary) !important; }
-        .scroll-wheel { background: var(--primary) !important; }
-        .scroll-indicator span { color: var(--text-muted) !important; }
-
-        /* ---- BUTTONS ---- */
-        .btn-primary {
-            background: var(--gradient-primary) !important;
-            color: #fff !important;
-            border: none !important;
-            box-shadow: 0 4px 16px rgba(26,86,219,0.25) !important;
-        }
-        .btn-primary:hover { box-shadow: 0 6px 24px rgba(26,86,219,0.35) !important; transform: translateY(-1px) !important; }
-        .btn-glow { box-shadow: 0 4px 20px rgba(26,86,219,0.3) !important; }
-        .btn-secondary {
-            background: #fff !important;
-            color: var(--primary) !important;
-            border: 2px solid var(--primary) !important;
-        }
-        .btn-secondary:hover { background: var(--primary) !important; color: #fff !important; }
-        .btn-glass {
-            background: rgba(255,255,255,0.9) !important;
-            color: var(--primary) !important;
-            border: 1px solid var(--border) !important;
-            backdrop-filter: blur(8px) !important;
-        }
-        .btn-outline {
-            background: transparent !important;
-            color: var(--primary) !important;
-            border: 2px solid var(--primary) !important;
-        }
-        .btn-outline:hover { background: var(--primary) !important; color: #fff !important; }
-        .btn-whatsapp {
-            background: #25d366 !important;
-            color: #fff !important;
-            border: none !important;
-        }
-
-        /* ---- TRUST MARQUEE ---- */
-        .trust-marquee {
-            background: var(--primary) !important;
-        }
-        .marquee-item {
-            color: #fff !important;
-        }
-        .marquee-item i { color: rgba(255,255,255,0.8) !important; }
-
-        /* ---- SECTION HEADERS ---- */
-        .section-badge {
-            background: rgba(26,86,219,0.08) !important;
-            color: var(--primary) !important;
-            border: 1px solid rgba(26,86,219,0.2) !important;
-        }
-        .section-title { color: var(--text-dark) !important; }
-        .section-subtitle { color: var(--text-muted) !important; }
-
-        /* ---- ABOUT SECTION ---- */
-        .about { background: var(--bg-white) !important; }
-        .about-content h3 { color: var(--text-dark) !important; }
-        .about-content p { color: var(--text-body) !important; }
-        .mv-card {
-            background: var(--bg-section-alt) !important;
-            border: 1px solid var(--border) !important;
-        }
-        .mv-card h4 { color: var(--primary) !important; }
-        .mv-card p { color: var(--text-body) !important; }
-        .about-feature i { color: var(--primary) !important; }
-        .about-feature span { color: var(--text-body) !important; }
-        .about-visual-card {
-            background: #fff !important;
-            border: 1px solid var(--border) !important;
-            box-shadow: var(--shadow-md) !important;
-        }
-        .av-header { background: var(--gradient-primary) !important; color: #fff !important; }
-        .av-stat strong { color: var(--primary) !important; }
-        .about-cert {
-            background: var(--bg-section-alt) !important;
-            border: 1px solid var(--border) !important;
-        }
-        .cert-item { color: var(--text-body) !important; }
-        .cert-item i { color: var(--primary) !important; }
-
-        /* ---- COMPARISON SECTION ---- */
-        .comparison { background: var(--bg-section-alt) !important; }
-        .compare-card {
-            background: #fff !important;
-            border: 1px solid var(--border) !important;
-            box-shadow: var(--shadow-md) !important;
-        }
-        .compare-card.sip-card { border-color: var(--primary) !important; }
-        .compare-ribbon { background: var(--primary) !important; color: #fff !important; }
-        .compare-header h3 { color: var(--text-dark) !important; }
-        .compare-icon { background: rgba(26,86,219,0.08) !important; color: var(--primary) !important; }
-        .compare-row span { color: var(--text-muted) !important; }
-        .compare-row strong { color: var(--text-dark) !important; }
-        .highlight-green { background: #f0fdf4 !important; }
-        .highlight-red { background: #fef2f2 !important; }
-        .text-green { color: #16a34a !important; }
-        .text-red { color: #dc2626 !important; }
-        .compare-verdict.good { background: #dcfce7 !important; color: #16a34a !important; }
-        .compare-verdict.bad { background: #fef2f2 !important; color: #dc2626 !important; }
-        .vs-circle {
-            background: var(--gradient-primary) !important;
-            color: #fff !important;
-            box-shadow: var(--shadow-md) !important;
-        }
-        .compare-tag { background: rgba(26,86,219,0.08) !important; color: var(--primary) !important; }
-
-        /* ---- SERVICES ---- */
-        .services { background: var(--bg-white) !important; }
-        .filter-btn {
-            background: #fff !important;
-            color: var(--text-body) !important;
-            border: 1px solid var(--border) !important;
-        }
-        .filter-btn.active {
-            background: var(--primary) !important;
-            color: #fff !important;
-            border-color: var(--primary) !important;
-        }
-        .service-card {
-            background: #fff !important;
-            border: 1px solid var(--border) !important;
-            box-shadow: var(--shadow-sm) !important;
-        }
-        .service-card:hover {
-            box-shadow: var(--shadow-md) !important;
-            border-color: var(--primary-light) !important;
-            transform: translateY(-3px) !important;
-        }
-        .sc-glow { display: none !important; }
-        .sc-icon {
-            background: rgba(26,86,219,0.08) !important;
-            color: var(--primary) !important;
-        }
-        .service-card h3 { color: var(--text-dark) !important; }
-        .service-card p { color: var(--text-body) !important; }
-        .sc-stats span { color: var(--text-muted) !important; }
-        .sc-link { color: var(--primary) !important; }
-
-        /* ---- CALCULATOR ---- */
-        .calculator { background: var(--bg-section-alt) !important; }
-        .calc-tab {
-            background: #fff !important;
-            color: var(--text-body) !important;
-            border: 1px solid var(--border) !important;
-        }
-        .calc-tab.active {
-            background: var(--primary) !important;
-            color: #fff !important;
-        }
-        .calculator-wrapper {
-            background: #fff !important;
-            border: 1px solid var(--border) !important;
-            box-shadow: var(--shadow-md) !important;
-        }
-        .calc-input-group label { color: var(--text-dark) !important; }
-        .calc-value-display {
-            background: var(--bg-section-alt) !important;
-            border: 1px solid var(--border) !important;
-            color: var(--primary) !important;
-        }
-        .calc-value-display input {
-            background: transparent !important;
-            color: var(--primary) !important;
-        }
-        .calc-slider { accent-color: var(--primary) !important; }
-        .slider-labels span { color: var(--text-muted) !important; }
-        .calc-result-card {
-            background: var(--bg-section-alt) !important;
-            border: 1px solid var(--border) !important;
-        }
-        .calc-result-card.total {
-            background: var(--gradient-primary) !important;
-            color: #fff !important;
-        }
-        .calc-result-card.total .crc-label,
-        .calc-result-card.total .crc-value { color: #fff !important; }
-        .crc-icon { color: var(--primary) !important; }
-        .calc-result-card.total .crc-icon { color: rgba(255,255,255,0.9) !important; }
-        .crc-label { color: var(--text-muted) !important; }
-        .crc-value { color: var(--primary) !important; font-weight: 700; }
-
-        /* ---- WHY CHOOSE ---- */
-        .why-choose { background: var(--bg-white) !important; }
-        .why-card {
-            background: #fff !important;
-            border: 1px solid var(--border) !important;
-            box-shadow: var(--shadow-sm) !important;
-        }
-        .why-card:hover { box-shadow: var(--shadow-md) !important; border-color: var(--primary-light) !important; }
-        .why-icon {
-            background: rgba(26,86,219,0.08) !important;
-            color: var(--primary) !important;
-        }
-        .why-content h4 { color: var(--text-dark) !important; }
-        .why-content p { color: var(--text-body) !important; }
-
-        /* ---- PLANS ---- */
-        .plans { background: var(--bg-section-alt) !important; }
-        .plan-card {
-            background: #fff !important;
-            border: 1px solid var(--border) !important;
-            box-shadow: var(--shadow-sm) !important;
-        }
-        .plan-card.featured {
-            background: var(--gradient-primary) !important;
-            border-color: var(--primary) !important;
-            box-shadow: var(--shadow-lg) !important;
-        }
-        .plan-card.featured * { color: #fff !important; }
-        .plan-badge { background: rgba(255,255,255,0.25) !important; color: #fff !important; }
-        .plan-card:not(.featured) .plan-icon {
-            background: rgba(26,86,219,0.08) !important;
-            color: var(--primary) !important;
-        }
-        .plan-card.featured .plan-icon {
-            background: rgba(255,255,255,0.2) !important;
-            color: #fff !important;
-        }
-        .plan-card:not(.featured) h3 { color: var(--text-dark) !important; }
-        .plan-card:not(.featured) .plan-desc { color: var(--text-muted) !important; }
-        .price-currency, .price-amount { color: var(--primary) !important; }
-        .plan-card.featured .price-currency,
-        .plan-card.featured .price-amount { color: #fff !important; }
-        .price-period { color: var(--text-muted) !important; }
-        .plan-card.featured .price-period { color: rgba(255,255,255,0.75) !important; }
-        .plan-features li { color: var(--text-body) !important; }
-        .plan-features li i { color: #16a34a !important; }
-        .plan-card.featured .plan-features li,
-        .plan-card.featured .plan-features li i { color: #fff !important; }
-
-        /* ---- NJ WEALTH ---- */
-        .nj-wealth {
-            background: var(--gradient-primary) !important;
-        }
-        .nj-wealth * { color: #fff !important; }
-        .nj-badge {
-            background: rgba(255,255,255,0.2) !important;
-            color: #fff !important;
-        }
-        .nj-benefit { background: rgba(255,255,255,0.15) !important; border-radius: 8px !important; }
-        .nj-logo-box {
-            background: rgba(255,255,255,0.15) !important;
-            border: 2px solid rgba(255,255,255,0.3) !important;
-        }
-        .nj-partner-badge { background: rgba(255,255,255,0.2) !important; }
-        .gradient-text-gold {
-            background: linear-gradient(135deg, #fef3c7, #fbbf24) !important;
-            -webkit-background-clip: text !important;
-            -webkit-text-fill-color: transparent !important;
-            background-clip: text !important;
-        }
-
-        /* ---- TESTIMONIALS ---- */
-        .testimonials { background: var(--bg-white) !important; }
-        .testimonial-card {
-            background: #fff !important;
-            border: 1px solid var(--border) !important;
-            box-shadow: var(--shadow-sm) !important;
-        }
-        .tc-quote i { color: var(--primary) !important; opacity: 0.2; }
-        .tc-text { color: var(--text-body) !important; }
-        .tc-rating i { color: #f59e0b !important; }
-        .tc-author h4 { color: var(--text-dark) !important; }
-        .tc-author span { color: var(--text-muted) !important; }
-        .tc-avatar {
-            background: rgba(26,86,219,0.08) !important;
-            color: var(--primary) !important;
-        }
-        .tc-btn {
-            background: #fff !important;
-            color: var(--primary) !important;
-            border: 1px solid var(--border) !important;
-        }
-        .tc-btn:hover { background: var(--primary) !important; color: #fff !important; }
-        .tc-dots .dot { background: var(--border) !important; }
-        .tc-dots .dot.active { background: var(--primary) !important; }
-        .vt-card {
-            background: #fff !important;
-            border: 1px solid var(--border) !important;
-        }
-        .vt-thumbnail {
-            background: var(--bg-section-alt) !important;
-            color: var(--primary) !important;
-        }
-        .vt-card h4 { color: var(--text-dark) !important; }
-        .vt-card p { color: var(--text-muted) !important; }
-        .vt-title { color: var(--text-dark) !important; }
-
-        /* ---- BLOG ---- */
-        .blog { background: var(--bg-section-alt) !important; }
-        .blog-card {
-            background: #fff !important;
-            border: 1px solid var(--border) !important;
-            box-shadow: var(--shadow-sm) !important;
-        }
-        .blog-img-placeholder {
-            background: rgba(26,86,219,0.06) !important;
-            color: var(--primary) !important;
-        }
-        .blog-category {
-            background: var(--primary) !important;
-            color: #fff !important;
-        }
-        .blog-meta span { color: var(--text-muted) !important; }
-        .blog-card h4 { color: var(--text-dark) !important; }
-        .blog-card p { color: var(--text-body) !important; }
-        .blog-link { color: var(--primary) !important; }
-
-        /* ---- FAQ ---- */
-        .faq { background: var(--bg-white) !important; }
-        .faq-item { border: 1px solid var(--border) !important; background: #fff !important; border-radius: var(--radius) !important; }
-        .faq-question { color: var(--text-dark) !important; background: transparent !important; }
-        .faq-question i { color: var(--primary) !important; }
-        .faq-answer p { color: var(--text-body) !important; }
-        .faq-item.open { border-color: var(--primary) !important; }
-
-        /* ---- CONTACT ---- */
-        .contact { background: var(--bg-section-alt) !important; }
-        .contact-form-wrapper {
-            background: #fff !important;
-            border: 1px solid var(--border) !important;
-            box-shadow: var(--shadow-md) !important;
-        }
-        .form-group {
-            background: var(--bg-main) !important;
-            border: 1px solid var(--border) !important;
-            border-radius: 10px !important;
-        }
-        .form-group:focus-within { border-color: var(--primary) !important; box-shadow: 0 0 0 3px rgba(26,86,219,0.1) !important; }
-        .form-group input, .form-group select, .form-group textarea {
-            background: transparent !important;
-            color: var(--text-dark) !important;
-        }
-        .form-icon { color: var(--primary) !important; }
-        .ci-card {
-            background: #fff !important;
-            border: 1px solid var(--border) !important;
-            box-shadow: var(--shadow-sm) !important;
-        }
-        .ci-icon {
-            background: rgba(26,86,219,0.08) !important;
-            color: var(--primary) !important;
-        }
-        .ci-card h4 { color: var(--text-dark) !important; }
-        .ci-card p { color: var(--text-body) !important; }
-
-        /* ---- FOOTER ---- */
-        .footer {
-            background: #0f1e3d !important;
-            color: #cbd5e1 !important;
-        }
-        .footer-wave { color: var(--bg-section-alt) !important; }
-        .footer-logo .logo-main { color: #fff !important; }
-        .footer-logo .logo-sub { color: #94a3b8 !important; }
-        .footer-logo .logo-icon { background: var(--gradient-primary) !important; }
-        .footer p { color: #94a3b8 !important; }
-        .footer h4 { color: #fff !important; }
-        .footer a { color: #94a3b8 !important; }
-        .footer a:hover { color: var(--accent) !important; }
-        .footer-social a {
-            background: rgba(255,255,255,0.08) !important;
-            color: #94a3b8 !important;
-        }
-        .footer-social a:hover { background: var(--primary) !important; color: #fff !important; }
-        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1) !important; }
-        .footer-contact li i { color: var(--accent) !important; }
-        .footer-clock { color: #94a3b8 !important; }
-        .footer-clock i { color: var(--accent) !important; }
-
-        /* ---- MOBILE CTA ---- */
-        .mobile-cta {
-            background: #fff !important;
-            border-top: 1px solid var(--border) !important;
-            box-shadow: 0 -4px 20px rgba(26,86,219,0.1) !important;
-        }
-        .mcta-call { background: var(--primary) !important; color: #fff !important; }
-        .mcta-whatsapp { background: #25d366 !important; color: #fff !important; }
-        .mcta-calc { background: var(--accent) !important; color: #fff !important; }
-        .mcta-enquiry { background: var(--accent2) !important; color: #fff !important; }
-
-        /* ---- BACK TO TOP ---- */
-        .back-to-top {
-            background: var(--gradient-primary) !important;
-            color: #fff !important;
-            box-shadow: var(--shadow-md) !important;
-        }
-
-        /* ---- TOAST ---- */
-        .toast {
-            background: #fff !important;
-            border-left: 4px solid var(--primary) !important;
-            box-shadow: var(--shadow-lg) !important;
-        }
-        .toast h4 { color: var(--text-dark) !important; }
-        .toast p { color: var(--text-body) !important; }
-        .toast-icon i { color: #16a34a !important; }
-
-        /* ---- WHATSAPP FLOAT ---- */
-        .whatsapp-float {
-            background: #25d366 !important;
-            box-shadow: 0 4px 20px rgba(37,211,102,0.4) !important;
-        }
-        .wp-tooltip {
-            background: #fff !important;
-            color: var(--text-dark) !important;
-            box-shadow: var(--shadow-md) !important;
-        }
-
-        /* ---- EXIT POPUP ---- */
-        .exit-modal {
-            background: #fff !important;
-            box-shadow: var(--shadow-lg) !important;
-        }
-        .exit-icon { color: var(--primary) !important; }
-        .exit-modal h3 { color: var(--text-dark) !important; }
-        .exit-modal p { color: var(--text-body) !important; }
-        .exit-form input {
-            border: 1px solid var(--border) !important;
-            background: var(--bg-main) !important;
-            color: var(--text-dark) !important;
-        }
-
-        /* ---- MOBILE MENU ---- */
-        @media (max-width: 768px) {
-            .nav-menu {
-                background: #fff !important;
-                border-top: 1px solid var(--border) !important;
-                box-shadow: var(--shadow-lg) !important;
-            }
-            .nav-link { color: var(--text-dark) !important; }
-        }
-    </style>
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FinancialService",
+      "name": "NandiIndia",
+      "description": "Trusted financial advisory associated with NJ Wealth",
+      "url": "https://nandiindia.com",
+      "telephone": "+91-98765-43210",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Gujarat",
+        "addressCountry": "IN"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "500"
+      }
+    }
+    </script>
 </head>
 <body>
 
@@ -622,6 +65,16 @@
 
     <!-- ============ SCROLL PROGRESS ============ -->
     <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- ============ MARKET TICKER ============ -->
+    <div class="market-ticker" id="marketTicker">
+        <div class="ticker-label">
+            <i class="fas fa-circle"></i> LIVE
+        </div>
+        <div class="ticker-track">
+            <div class="ticker-content"></div>
+        </div>
+    </div>
 
     <!-- ============ NAVBAR ============ -->
     <nav class="navbar" id="navbar">
@@ -641,6 +94,7 @@
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#services" class="nav-link">Services</a></li>
                 <li><a href="#calculator" class="nav-link">Calculator</a></li>
+                <li><a href="#goal-planner" class="nav-link">Goals</a></li>
                 <li><a href="#plans" class="nav-link">Plans</a></li>
                 <li><a href="#blog" class="nav-link">Tips</a></li>
                 <li><a href="#faq" class="nav-link">FAQ</a></li>
@@ -668,52 +122,46 @@
     <!-- ============ HERO SECTION ============ -->
     <section class="hero" id="home">
         <div class="hero-bg">
-            <div class="hero-gradient"></div>
-            <div class="hero-particles" id="particles"></div>
-            <div class="hero-grid-pattern"></div>
-            <div class="hero-shapes">
-                <div class="shape shape-1"></div>
-                <div class="shape shape-2"></div>
-                <div class="shape shape-3"></div>
-                <div class="shape shape-4"></div>
-                <div class="shape shape-5"></div>
-            </div>
+            <div class="hero-blob blob-1"></div>
+            <div class="hero-blob blob-2"></div>
+            <div class="hero-blob blob-3"></div>
+            <div class="hero-grid"></div>
         </div>
 
         <div class="hero-container">
             <div class="hero-content">
-                <div class="hero-badge animate-fade-up">
+                <div class="hero-badge">
                     <div class="badge-dot"></div>
                     <span>Trusted Financial Partner Since 2015</span>
                 </div>
-                <h1 class="hero-title animate-fade-up delay-1">
+                <h1 class="hero-title">
                     <span class="title-line">Secure Your Future</span>
                     <span class="title-line gradient-text">With Smart Investments</span>
                 </h1>
-                <div class="hero-typing animate-fade-up delay-2">
+                <div class="hero-typing">
                     <span class="typing-prefix">We help you with </span>
                     <span class="typing-text" id="typingText"></span>
                     <span class="typing-cursor">|</span>
                 </div>
-                <p class="hero-subtitle animate-fade-up delay-2">
+                <p class="hero-subtitle">
                     Start SIP Today And Build Long-Term Wealth With Trusted Financial Guidance.
                     NandiIndia — Your Path To Financial Freedom.
                 </p>
-                <div class="hero-buttons animate-fade-up delay-3">
+                <div class="hero-buttons">
                     <a href="#calculator" class="btn btn-primary btn-glow">
                         <i class="fas fa-play-circle"></i>
                         Start Investing
                     </a>
-                    <a href="#contact" class="btn btn-secondary">
+                    <a href="#contact" class="btn btn-glass">
                         <i class="fas fa-phone"></i>
                         Free Consultation
                     </a>
-                    <a href="#" class="btn btn-glass" id="downloadGuide">
+                    <a href="#" class="btn btn-outline" id="downloadGuide">
                         <i class="fas fa-download"></i>
                         Free Guide
                     </a>
                 </div>
-                <div class="hero-trust animate-fade-up delay-4">
+                <div class="hero-trust">
                     <div class="trust-avatars">
                         <div class="trust-avatar"><i class="fas fa-user"></i></div>
                         <div class="trust-avatar"><i class="fas fa-user"></i></div>
@@ -734,34 +182,33 @@
                 </div>
             </div>
 
-            <div class="hero-visual animate-fade-left delay-2">
+            <div class="hero-visual">
                 <div class="hero-card main-card">
-                    <div class="card-glow"></div>
-                    <div class="card-content">
-                        <div class="card-header">
-                            <span class="card-label">Portfolio Growth</span>
-                            <span class="card-badge positive"><i class="fas fa-arrow-up"></i> 24.5%</span>
-                        </div>
-                        <div class="card-value">₹15,42,680</div>
-                        <div class="card-meta">
-                            <span>This Month: <strong>+₹1,23,450</strong></span>
-                        </div>
-                        <div class="card-chart">
-                            <svg viewBox="0 0 200 60" class="mini-chart">
-                                <defs>
-                                    <linearGradient id="chartGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                                        <stop offset="0%" style="stop-color:#60a5fa"/>
-                                        <stop offset="100%" style="stop-color:#93c5fd"/>
-                                    </linearGradient>
-                                    <linearGradient id="chartFill" x1="0%" y1="0%" x2="0%" y2="100%">
-                                        <stop offset="0%" style="stop-color:rgba(96,165,250,0.3)"/>
-                                        <stop offset="100%" style="stop-color:rgba(96,165,250,0)"/>
-                                    </linearGradient>
-                                </defs>
-                                <path d="M0,50 20,45 40,48 60,35 80,38 100,25 120,28 140,15 160,18 180,8 200,5 200,60 0,60Z" fill="url(#chartFill)"/>
-                                <polyline points="0,50 20,45 40,48 60,35 80,38 100,25 120,28 140,15 160,18 180,8 200,5" fill="none" stroke="url(#chartGradient)" stroke-width="2.5" stroke-linecap="round"/>
-                            </svg>
-                        </div>
+                    <div class="card-header">
+                        <span class="card-label">Portfolio Growth</span>
+                        <span class="card-badge positive">
+                            <i class="fas fa-arrow-up"></i> 24.5%
+                        </span>
+                    </div>
+                    <div class="card-value">₹15,42,680</div>
+                    <div class="card-meta">
+                        This Month: <strong>+₹1,23,450</strong>
+                    </div>
+                    <div class="card-chart">
+                        <svg viewBox="0 0 200 60" class="mini-chart">
+                            <defs>
+                                <linearGradient id="cg" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" style="stop-color:#7c3aed"/>
+                                    <stop offset="100%" style="stop-color:#f97316"/>
+                                </linearGradient>
+                                <linearGradient id="cf" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" style="stop-color:rgba(124,58,237,0.25)"/>
+                                    <stop offset="100%" style="stop-color:rgba(124,58,237,0)"/>
+                                </linearGradient>
+                            </defs>
+                            <path d="M0,50 20,45 40,48 60,35 80,38 100,25 120,28 140,15 160,18 180,8 200,5 200,60 0,60Z" fill="url(#cf)"/>
+                            <polyline points="0,50 20,45 40,48 60,35 80,38 100,25 120,28 140,15 160,18 180,8 200,5" fill="none" stroke="url(#cg)" stroke-width="2.5" stroke-linecap="round"/>
+                        </svg>
                     </div>
                 </div>
 
@@ -799,51 +246,45 @@
             </div>
         </div>
 
+        <!-- Hero Stats -->
         <div class="hero-stats">
-            <div class="stat-item animate-fade-up delay-3">
+            <div class="stat-item">
                 <div class="stat-icon"><i class="fas fa-indian-rupee-sign"></i></div>
-                <div class="stat-content">
+                <div class="stat-body">
                     <div class="stat-number" data-target="10">0</div>
                     <div class="stat-suffix">Cr+ Managed</div>
+                    <div class="stat-label">Assets Under Advisory</div>
                 </div>
-                <div class="stat-label">Assets Under Advisory</div>
             </div>
-            <div class="stat-item animate-fade-up delay-4">
+            <div class="stat-item">
                 <div class="stat-icon"><i class="fas fa-face-smile"></i></div>
-                <div class="stat-content">
+                <div class="stat-body">
                     <div class="stat-number" data-target="500">0</div>
                     <div class="stat-suffix">+ Clients</div>
+                    <div class="stat-label">Trust Built Over Years</div>
                 </div>
-                <div class="stat-label">Trust Built Over Years</div>
             </div>
-            <div class="stat-item animate-fade-up delay-5">
+            <div class="stat-item">
                 <div class="stat-icon"><i class="fas fa-calendar-check"></i></div>
-                <div class="stat-content">
+                <div class="stat-body">
                     <div class="stat-number" data-target="10">0</div>
                     <div class="stat-suffix">+ Years</div>
+                    <div class="stat-label">Financial Expertise</div>
                 </div>
-                <div class="stat-label">Financial Expertise</div>
             </div>
-            <div class="stat-item animate-fade-up delay-5">
+            <div class="stat-item">
                 <div class="stat-icon"><i class="fas fa-handshake"></i></div>
-                <div class="stat-content">
+                <div class="stat-body">
                     <div class="stat-number" data-target="1000">0</div>
                     <div class="stat-suffix">+ SIPs Active</div>
+                    <div class="stat-label">Growing Every Day</div>
                 </div>
-                <div class="stat-label">Growing Every Day</div>
             </div>
-        </div>
-
-        <div class="scroll-indicator">
-            <div class="scroll-mouse">
-                <div class="scroll-wheel"></div>
-            </div>
-            <span>Scroll to Explore</span>
         </div>
     </section>
 
     <!-- ============ TRUST MARQUEE ============ -->
-    <section class="trust-marquee">
+    <div class="trust-marquee">
         <div class="marquee-track">
             <div class="marquee-content">
                 <div class="marquee-item"><i class="fas fa-shield-halved"></i> SEBI Compliant</div>
@@ -854,7 +295,6 @@
                 <div class="marquee-item"><i class="fas fa-chart-line"></i> ₹10Cr+ Managed</div>
                 <div class="marquee-item"><i class="fas fa-clock"></i> 10+ Years Experience</div>
                 <div class="marquee-item"><i class="fas fa-certificate"></i> Certified Advisors</div>
-                <!-- Duplicate for seamless loop -->
                 <div class="marquee-item"><i class="fas fa-shield-halved"></i> SEBI Compliant</div>
                 <div class="marquee-item"><i class="fas fa-building-columns"></i> NJ Wealth Partner</div>
                 <div class="marquee-item"><i class="fas fa-lock"></i> 100% Secure</div>
@@ -865,95 +305,81 @@
                 <div class="marquee-item"><i class="fas fa-certificate"></i> Certified Advisors</div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- ============ ABOUT SECTION ============ -->
+    <!-- ============ ABOUT ============ -->
     <section class="about" id="about">
         <div class="container">
             <div class="section-header">
-                <span class="section-badge animate-on-scroll">
+                <span class="section-badge">
                     <i class="fas fa-building"></i> About Us
                 </span>
-                <h2 class="section-title animate-on-scroll">
+                <h2 class="section-title">
                     Your Trusted Partner In
                     <span class="gradient-text">Financial Growth</span>
                 </h2>
-                <p class="section-subtitle animate-on-scroll">
+                <p class="section-subtitle">
                     Building wealth, one SIP at a time — with transparency, trust, and expertise.
                 </p>
             </div>
-
             <div class="about-grid">
-                <div class="about-content animate-on-scroll">
-                    <div class="about-text">
-                        <h3>Who We Are</h3>
-                        <p>
-                            <strong>NandiIndia</strong> is a trusted financial advisory platform associated with 
-                            <strong>NJ Wealth</strong>, one of India's leading financial distribution networks. 
-                            We help individuals and families achieve financial freedom through SIPs, mutual funds, 
-                            retirement planning, and comprehensive wealth management solutions.
-                        </p>
-                        <p>
-                            With over a decade of experience, our team of certified financial advisors provides 
-                            personalized investment strategies tailored to your unique goals and risk appetite.
-                        </p>
-                    </div>
-
+                <div class="about-content">
+                    <h3>Who We Are</h3>
+                    <p><strong>NandiIndia</strong> is a trusted financial advisory platform associated with <strong>NJ Wealth</strong>, one of India's leading financial distribution networks.</p>
+                    <p>With over a decade of experience, our certified financial advisors provide personalized investment strategies tailored to your unique goals.</p>
                     <div class="about-mission-vision">
                         <div class="mv-card">
                             <div class="mv-icon"><i class="fas fa-bullseye"></i></div>
                             <h4>Our Mission</h4>
-                            <p>To empower every individual with smart financial planning and help them build sustainable wealth for a secure future.</p>
+                            <p>To empower every individual with smart financial planning and help them build sustainable wealth.</p>
                         </div>
                         <div class="mv-card">
                             <div class="mv-icon"><i class="fas fa-eye"></i></div>
                             <h4>Our Vision</h4>
-                            <p>To become India's most trusted financial advisory platform, making quality investment guidance accessible to everyone.</p>
+                            <p>To become India's most trusted financial advisory platform, accessible to everyone.</p>
                         </div>
                     </div>
-
                     <div class="about-founder">
                         <div class="founder-avatar">
                             <i class="fas fa-user-tie"></i>
                         </div>
                         <div class="founder-info">
                             <h4>Founder's Message</h4>
-                            <p>"At NandiIndia, we believe that every person deserves access to professional financial guidance. Our commitment is to simplify investing and help you achieve your dreams."</p>
+                            <p>"At NandiIndia, we believe every person deserves access to professional financial guidance."</p>
                             <span class="founder-name">— Team NandiIndia</span>
                         </div>
                     </div>
                 </div>
-
-                <div class="about-cards animate-on-scroll">
+                <div class="about-cards">
                     <div class="about-card">
                         <div class="ac-icon"><i class="fas fa-shield-halved"></i></div>
                         <h4>Trusted Guidance</h4>
-                        <p>SEBI compliant, ethical practices, and transparent advisory services you can trust.</p>
+                        <p>SEBI compliant, ethical practices, transparent advisory.</p>
                         <div class="ac-number">01</div>
                     </div>
                     <div class="about-card">
                         <div class="ac-icon"><i class="fas fa-eye"></i></div>
                         <h4>Transparent Advice</h4>
-                        <p>No hidden charges, clear communication, and complete portfolio visibility.</p>
+                        <p>No hidden charges, clear communication.</p>
                         <div class="ac-number">02</div>
                     </div>
                     <div class="about-card">
                         <div class="ac-icon"><i class="fas fa-chart-line"></i></div>
                         <h4>Long-Term Growth</h4>
-                        <p>Strategies designed for sustainable wealth creation over the long term.</p>
+                        <p>Strategies for sustainable wealth creation.</p>
                         <div class="ac-number">03</div>
                     </div>
                     <div class="about-card">
                         <div class="ac-icon"><i class="fas fa-heart"></i></div>
                         <h4>Client Satisfaction</h4>
-                        <p>500+ happy clients and counting. Your success is our priority.</p>
+                        <p>500+ happy clients. Your success is our priority.</p>
                         <div class="ac-number">04</div>
                     </div>
                 </div>
             </div>
 
-            <!-- ===== TIMELINE ===== -->
-            <div class="timeline-section animate-on-scroll">
+            <!-- Timeline -->
+            <div class="timeline-section">
                 <h3 class="timeline-title">Our Journey</h3>
                 <div class="timeline">
                     <div class="timeline-item">
@@ -961,7 +387,7 @@
                         <div class="timeline-content">
                             <span class="timeline-year">2015</span>
                             <h4>Founded NandiIndia</h4>
-                            <p>Started our journey as a financial advisory firm with a vision to help everyone invest smartly.</p>
+                            <p>Started our journey as a financial advisory firm.</p>
                         </div>
                     </div>
                     <div class="timeline-item">
@@ -969,7 +395,7 @@
                         <div class="timeline-content">
                             <span class="timeline-year">2017</span>
                             <h4>NJ Wealth Partnership</h4>
-                            <p>Partnered with NJ Wealth to provide world-class investment products and technology.</p>
+                            <p>Partnered with NJ Wealth for world-class investment products.</p>
                         </div>
                     </div>
                     <div class="timeline-item">
@@ -977,7 +403,7 @@
                         <div class="timeline-content">
                             <span class="timeline-year">2019</span>
                             <h4>100+ Clients Milestone</h4>
-                            <p>Crossed 100 happy clients with growing AUM and expanding service offerings.</p>
+                            <p>Crossed 100 happy clients with growing AUM.</p>
                         </div>
                     </div>
                     <div class="timeline-item">
@@ -985,7 +411,7 @@
                         <div class="timeline-content">
                             <span class="timeline-year">2021</span>
                             <h4>Digital Transformation</h4>
-                            <p>Launched digital platforms for seamless online investing and portfolio tracking.</p>
+                            <p>Launched digital platforms for online investing.</p>
                         </div>
                     </div>
                     <div class="timeline-item">
@@ -993,7 +419,7 @@
                         <div class="timeline-content">
                             <span class="timeline-year">2023</span>
                             <h4>₹10Cr+ AUM</h4>
-                            <p>Achieved ₹10 Crore+ in Assets Under Management with 500+ satisfied clients.</p>
+                            <p>Achieved ₹10 Crore+ with 500+ satisfied clients.</p>
                         </div>
                     </div>
                     <div class="timeline-item">
@@ -1001,7 +427,7 @@
                         <div class="timeline-content">
                             <span class="timeline-year">2025</span>
                             <h4>Growing Strong</h4>
-                            <p>Continuing to expand with new services, more clients, and advanced financial tools.</p>
+                            <p>Expanding with new services and advanced financial tools.</p>
                         </div>
                     </div>
                 </div>
@@ -1009,58 +435,36 @@
         </div>
     </section>
 
-    <!-- ============ BEFORE AFTER COMPARISON ============ -->
+    <!-- ============ COMPARISON ============ -->
     <section class="comparison" id="comparison">
         <div class="container">
             <div class="section-header">
-                <span class="section-badge animate-on-scroll">
+                <span class="section-badge">
                     <i class="fas fa-scale-balanced"></i> Compare
                 </span>
-                <h2 class="section-title animate-on-scroll">
+                <h2 class="section-title">
                     Savings Account vs
                     <span class="gradient-text">SIP Investment</span>
                 </h2>
-                <p class="section-subtitle animate-on-scroll">
-                    See the real power of SIP compared to traditional savings.
-                </p>
+                <p class="section-subtitle">See the real power of SIP vs traditional savings.</p>
             </div>
-
-            <div class="comparison-grid animate-on-scroll">
-                <div class="compare-card savings">
+            <div class="comparison-grid">
+                <div class="compare-card savings-card">
                     <div class="compare-header">
                         <div class="compare-icon"><i class="fas fa-piggy-bank"></i></div>
                         <h3>Savings Account</h3>
                         <span class="compare-tag">Traditional</span>
                     </div>
                     <div class="compare-body">
-                        <div class="compare-row">
-                            <span>Monthly Deposit</span>
-                            <strong>₹5,000</strong>
-                        </div>
-                        <div class="compare-row">
-                            <span>Interest Rate</span>
-                            <strong>4% p.a.</strong>
-                        </div>
-                        <div class="compare-row">
-                            <span>Duration</span>
-                            <strong>10 Years</strong>
-                        </div>
-                        <div class="compare-row">
-                            <span>Total Invested</span>
-                            <strong>₹6,00,000</strong>
-                        </div>
-                        <div class="compare-row highlight-red">
-                            <span>Total Value</span>
-                            <strong>₹7,37,414</strong>
-                        </div>
-                        <div class="compare-row">
-                            <span>Wealth Gained</span>
-                            <strong class="text-red">₹1,37,414</strong>
-                        </div>
+                        <div class="compare-row"><span>Monthly Deposit</span><strong>₹5,000</strong></div>
+                        <div class="compare-row"><span>Interest Rate</span><strong>4% p.a.</strong></div>
+                        <div class="compare-row"><span>Duration</span><strong>10 Years</strong></div>
+                        <div class="compare-row"><span>Total Invested</span><strong>₹6,00,000</strong></div>
+                        <div class="compare-row highlight-red"><span>Total Value</span><strong>₹7,37,414</strong></div>
+                        <div class="compare-row"><span>Wealth Gained</span><strong class="text-red">₹1,37,414</strong></div>
                     </div>
                     <div class="compare-verdict bad">
-                        <i class="fas fa-thumbs-down"></i>
-                        <span>Low Growth</span>
+                        <i class="fas fa-thumbs-down"></i> Low Growth
                     </div>
                 </div>
 
@@ -1069,47 +473,27 @@
                 </div>
 
                 <div class="compare-card sip-card">
-                    <div class="compare-ribbon">Recommended</div>
+                    <div class="compare-ribbon">⭐ Recommended</div>
                     <div class="compare-header">
-                        <div class="compare-icon"><i class="fas fa-chart-line"></i></div>
+                        <div class="compare-icon accent"><i class="fas fa-chart-line"></i></div>
                         <h3>SIP Investment</h3>
-                        <span class="compare-tag">Smart Choice</span>
+                        <span class="compare-tag accent">Smart Choice</span>
                     </div>
                     <div class="compare-body">
-                        <div class="compare-row">
-                            <span>Monthly SIP</span>
-                            <strong>₹5,000</strong>
-                        </div>
-                        <div class="compare-row">
-                            <span>Expected Return</span>
-                            <strong>12% p.a.</strong>
-                        </div>
-                        <div class="compare-row">
-                            <span>Duration</span>
-                            <strong>10 Years</strong>
-                        </div>
-                        <div class="compare-row">
-                            <span>Total Invested</span>
-                            <strong>₹6,00,000</strong>
-                        </div>
-                        <div class="compare-row highlight-green">
-                            <span>Total Value</span>
-                            <strong>₹11,61,695</strong>
-                        </div>
-                        <div class="compare-row">
-                            <span>Wealth Gained</span>
-                            <strong class="text-green">₹5,61,695</strong>
-                        </div>
+                        <div class="compare-row"><span>Monthly SIP</span><strong>₹5,000</strong></div>
+                        <div class="compare-row"><span>Expected Return</span><strong>12% p.a.</strong></div>
+                        <div class="compare-row"><span>Duration</span><strong>10 Years</strong></div>
+                        <div class="compare-row"><span>Total Invested</span><strong>₹6,00,000</strong></div>
+                        <div class="compare-row highlight-green"><span>Total Value</span><strong>₹11,61,695</strong></div>
+                        <div class="compare-row"><span>Wealth Gained</span><strong class="text-green">₹5,61,695</strong></div>
                     </div>
                     <div class="compare-verdict good">
-                        <i class="fas fa-thumbs-up"></i>
-                        <span>4x More Growth!</span>
+                        <i class="fas fa-thumbs-up"></i> 4x More Growth!
                     </div>
                 </div>
             </div>
-
-            <div class="comparison-cta animate-on-scroll">
-                <p>Don't let your money sleep in savings! Start SIP today.</p>
+            <div class="comparison-cta">
+                <p>Don't let your money sleep in savings. Start SIP today!</p>
                 <a href="#calculator" class="btn btn-primary">
                     <i class="fas fa-calculator"></i> Calculate Your Returns
                 </a>
@@ -1117,120 +501,100 @@
         </div>
     </section>
 
-    <!-- ============ SERVICES SECTION ============ -->
+    <!-- ============ SERVICES ============ -->
     <section class="services" id="services">
         <div class="container">
             <div class="section-header">
-                <span class="section-badge animate-on-scroll">
+                <span class="section-badge">
                     <i class="fas fa-concierge-bell"></i> Our Services
                 </span>
-                <h2 class="section-title animate-on-scroll">
+                <h2 class="section-title">
                     Comprehensive Financial
                     <span class="gradient-text">Solutions For You</span>
                 </h2>
-                <p class="section-subtitle animate-on-scroll">
-                    From SIP investments to retirement planning — we cover all aspects of your financial journey.
-                </p>
+                <p class="section-subtitle">From SIP to retirement — we cover your entire financial journey.</p>
             </div>
-
-            <!-- Service Filter Tabs -->
-            <div class="service-filters animate-on-scroll">
+            <div class="service-filters">
                 <button class="filter-btn active" data-filter="all">All Services</button>
                 <button class="filter-btn" data-filter="investment">Investment</button>
                 <button class="filter-btn" data-filter="planning">Planning</button>
                 <button class="filter-btn" data-filter="protection">Protection</button>
             </div>
-
             <div class="services-grid">
-                <div class="service-card animate-on-scroll" data-category="investment">
-                    <div class="sc-glow"></div>
+                <div class="service-card" data-category="investment">
                     <div class="sc-icon"><i class="fas fa-piggy-bank"></i></div>
                     <h3>SIP Investment</h3>
-                    <p>Start with as low as ₹500/month. Systematic Investment Plans for disciplined wealth creation.</p>
+                    <p>Start with as low as ₹500/month. Disciplined wealth creation through SIP.</p>
                     <div class="sc-stats">
                         <span><i class="fas fa-users"></i> 450+ Clients</span>
                         <span><i class="fas fa-star"></i> 4.9</span>
                     </div>
                     <a href="#contact" class="sc-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
-
-                <div class="service-card animate-on-scroll" data-category="investment">
-                    <div class="sc-glow"></div>
+                <div class="service-card" data-category="investment">
                     <div class="sc-icon"><i class="fas fa-chart-pie"></i></div>
                     <h3>Mutual Funds</h3>
-                    <p>Diversified mutual fund portfolios managed by top fund houses for optimal returns.</p>
+                    <p>Diversified portfolios managed by top fund houses for optimal returns.</p>
                     <div class="sc-stats">
                         <span><i class="fas fa-users"></i> 380+ Clients</span>
                         <span><i class="fas fa-star"></i> 4.8</span>
                     </div>
                     <a href="#contact" class="sc-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
-
-                <div class="service-card animate-on-scroll" data-category="planning">
-                    <div class="sc-glow"></div>
+                <div class="service-card" data-category="planning">
                     <div class="sc-icon"><i class="fas fa-file-invoice-dollar"></i></div>
                     <h3>Tax Saving Plans</h3>
-                    <p>Save up to ₹1.5 Lakh under Section 80C with ELSS and other tax-efficient investments.</p>
+                    <p>Save up to ₹1.5 Lakh under Section 80C with ELSS investments.</p>
                     <div class="sc-stats">
                         <span><i class="fas fa-users"></i> 200+ Clients</span>
                         <span><i class="fas fa-star"></i> 4.9</span>
                     </div>
                     <a href="#contact" class="sc-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
-
-                <div class="service-card animate-on-scroll" data-category="planning">
-                    <div class="sc-glow"></div>
+                <div class="service-card" data-category="planning">
                     <div class="sc-icon"><i class="fas fa-umbrella-beach"></i></div>
                     <h3>Retirement Planning</h3>
-                    <p>Secure your golden years with customized retirement planning strategies.</p>
+                    <p>Secure your golden years with customized retirement strategies.</p>
                     <div class="sc-stats">
                         <span><i class="fas fa-users"></i> 150+ Clients</span>
                         <span><i class="fas fa-star"></i> 4.9</span>
                     </div>
                     <a href="#contact" class="sc-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
-
-                <div class="service-card animate-on-scroll" data-category="planning">
-                    <div class="sc-glow"></div>
+                <div class="service-card" data-category="planning">
                     <div class="sc-icon"><i class="fas fa-graduation-cap"></i></div>
                     <h3>Child Education Planning</h3>
-                    <p>Plan today for your child's bright tomorrow. Education-focused investment solutions.</p>
+                    <p>Plan today for your child's bright tomorrow.</p>
                     <div class="sc-stats">
                         <span><i class="fas fa-users"></i> 120+ Clients</span>
                         <span><i class="fas fa-star"></i> 5.0</span>
                     </div>
                     <a href="#contact" class="sc-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
-
-                <div class="service-card animate-on-scroll" data-category="investment">
-                    <div class="sc-glow"></div>
+                <div class="service-card" data-category="investment">
                     <div class="sc-icon"><i class="fas fa-gem"></i></div>
                     <h3>Wealth Management</h3>
-                    <p>Comprehensive wealth management for HNIs with personalized portfolio strategies.</p>
+                    <p>Comprehensive wealth management for HNIs.</p>
                     <div class="sc-stats">
                         <span><i class="fas fa-users"></i> 50+ Clients</span>
                         <span><i class="fas fa-star"></i> 5.0</span>
                     </div>
                     <a href="#contact" class="sc-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
-
-                <div class="service-card animate-on-scroll" data-category="protection">
-                    <div class="sc-glow"></div>
+                <div class="service-card" data-category="protection">
                     <div class="sc-icon"><i class="fas fa-shield-heart"></i></div>
                     <h3>Insurance Advisory</h3>
-                    <p>Term life, health, and investment-linked insurance plans for complete protection.</p>
+                    <p>Term life, health, and investment-linked insurance plans.</p>
                     <div class="sc-stats">
                         <span><i class="fas fa-users"></i> 180+ Clients</span>
                         <span><i class="fas fa-star"></i> 4.8</span>
                     </div>
                     <a href="#contact" class="sc-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
-
-                <div class="service-card animate-on-scroll" data-category="planning">
-                    <div class="sc-glow"></div>
+                <div class="service-card" data-category="planning">
                     <div class="sc-icon"><i class="fas fa-bullseye"></i></div>
                     <h3>Goal Based Investing</h3>
-                    <p>Define your goals — home, car, travel — and we create a roadmap to achieve them.</p>
+                    <p>Define your goals — home, car, travel — we create your roadmap.</p>
                     <div class="sc-stats">
                         <span><i class="fas fa-users"></i> 220+ Clients</span>
                         <span><i class="fas fa-star"></i> 4.9</span>
@@ -1241,24 +605,21 @@
         </div>
     </section>
 
-    <!-- ============ CALCULATOR SECTION (Multi-Tab) ============ -->
+    <!-- ============ CALCULATOR ============ -->
     <section class="calculator" id="calculator">
         <div class="container">
             <div class="section-header">
-                <span class="section-badge animate-on-scroll">
+                <span class="section-badge">
                     <i class="fas fa-calculator"></i> Financial Calculators
                 </span>
-                <h2 class="section-title animate-on-scroll">
+                <h2 class="section-title">
                     Calculate Your
                     <span class="gradient-text">Future Wealth</span>
                 </h2>
-                <p class="section-subtitle animate-on-scroll">
-                    Use our powerful calculators to plan your financial future with precision.
-                </p>
+                <p class="section-subtitle">Plan your financial future with precision.</p>
             </div>
 
-            <!-- Calculator Tabs -->
-            <div class="calc-tabs animate-on-scroll">
+            <div class="calc-tabs">
                 <button class="calc-tab active" data-calc="sip">
                     <i class="fas fa-piggy-bank"></i> SIP Calculator
                 </button>
@@ -1270,15 +631,15 @@
                 </button>
             </div>
 
-            <!-- SIP Calculator -->
-            <div class="calculator-wrapper animate-on-scroll calc-panel active" id="sipPanel">
+            <!-- SIP Panel -->
+            <div class="calculator-wrapper calc-panel active" id="sipPanel">
                 <div class="calc-inputs">
                     <div class="calc-input-group">
                         <div class="calc-input-header">
                             <label>Monthly Investment</label>
                             <div class="calc-value-display">
                                 <span>₹</span>
-                                <input type="number" id="sipAmount" value="5000" min="500" max="1000000">
+                                <input type="number" id="sipAmount" value="5000" min="500" max="100000">
                             </div>
                         </div>
                         <input type="range" id="sipAmountRange" min="500" max="100000" value="5000" step="500" class="calc-slider">
@@ -1340,7 +701,7 @@
                 </div>
             </div>
 
-            <!-- Lump Sum Calculator -->
+            <!-- Lump Sum Panel -->
             <div class="calculator-wrapper calc-panel" id="lumpsumPanel">
                 <div class="calc-inputs">
                     <div class="calc-input-group">
@@ -1348,7 +709,7 @@
                             <label>One-Time Investment</label>
                             <div class="calc-value-display">
                                 <span>₹</span>
-                                <input type="number" id="lsAmount" value="100000" min="1000" max="10000000">
+                                <input type="number" id="lsAmount" value="100000" min="1000" max="5000000">
                             </div>
                         </div>
                         <input type="range" id="lsAmountRange" min="1000" max="5000000" value="100000" step="1000" class="calc-slider">
@@ -1410,7 +771,7 @@
                 </div>
             </div>
 
-            <!-- EMI Calculator -->
+            <!-- EMI Panel -->
             <div class="calculator-wrapper calc-panel" id="emiPanel">
                 <div class="calc-inputs">
                     <div class="calc-input-group">
@@ -1418,7 +779,7 @@
                             <label>Loan Amount</label>
                             <div class="calc-value-display">
                                 <span>₹</span>
-                                <input type="number" id="emiAmount" value="1000000" min="10000" max="100000000">
+                                <input type="number" id="emiAmount" value="1000000" min="10000" max="10000000">
                             </div>
                         </div>
                         <input type="range" id="emiAmountRange" min="10000" max="10000000" value="1000000" step="10000" class="calc-slider">
@@ -1479,58 +840,148 @@
                     </a>
                 </div>
             </div>
+
+            <!-- Year Breakdown Table -->
+            <div class="sip-breakdown" id="sipBreakdown">
+                <div class="breakdown-header">
+                    <h3>📊 Year-by-Year Growth Breakdown</h3>
+                    <button class="btn btn-outline btn-sm" onclick="downloadBreakdown()">
+                        <i class="fas fa-download"></i> Download Report
+                    </button>
+                </div>
+                <div class="breakdown-table-wrapper">
+                    <table class="breakdown-table">
+                        <thead>
+                            <tr>
+                                <th>Year</th>
+                                <th>Invested</th>
+                                <th>Returns</th>
+                                <th>Total Value</th>
+                                <th>Growth</th>
+                            </tr>
+                        </thead>
+                        <tbody id="breakdownBody"></tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- ============ WHY CHOOSE US ============ -->
+    <!-- ============ GOAL PLANNER ============ -->
+    <section class="goal-planner" id="goal-planner">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">
+                    <i class="fas fa-bullseye"></i> Goal Planner
+                </span>
+                <h2 class="section-title">
+                    Plan Your <span class="gradient-text">Financial Goals</span>
+                </h2>
+                <p class="section-subtitle">
+                    Select a goal and we'll calculate the SIP you need to achieve it.
+                </p>
+            </div>
+            <div class="goals-grid">
+                <div class="goal-card" data-goal="home">
+                    <div class="goal-icon">🏠</div>
+                    <h4>Buy a Home</h4>
+                    <p>₹50 Lakh in 10 Years</p>
+                    <div class="goal-sip">SIP Needed: <strong>₹22,244/month</strong></div>
+                    <button class="btn btn-primary">Plan This Goal</button>
+                </div>
+                <div class="goal-card" data-goal="car">
+                    <div class="goal-icon">🚗</div>
+                    <h4>Buy a Car</h4>
+                    <p>₹10 Lakh in 3 Years</p>
+                    <div class="goal-sip">SIP Needed: <strong>₹22,131/month</strong></div>
+                    <button class="btn btn-primary">Plan This Goal</button>
+                </div>
+                <div class="goal-card" data-goal="education">
+                    <div class="goal-icon">🎓</div>
+                    <h4>Child's Education</h4>
+                    <p>₹30 Lakh in 15 Years</p>
+                    <div class="goal-sip">SIP Needed: <strong>₹6,879/month</strong></div>
+                    <button class="btn btn-primary">Plan This Goal</button>
+                </div>
+                <div class="goal-card" data-goal="retirement">
+                    <div class="goal-icon">🏖️</div>
+                    <h4>Retirement Corpus</h4>
+                    <p>₹1 Crore in 20 Years</p>
+                    <div class="goal-sip">SIP Needed: <strong>₹10,109/month</strong></div>
+                    <button class="btn btn-primary">Plan This Goal</button>
+                </div>
+                <div class="goal-card" data-goal="travel">
+                    <div class="goal-icon">✈️</div>
+                    <h4>World Tour</h4>
+                    <p>₹5 Lakh in 2 Years</p>
+                    <div class="goal-sip">SIP Needed: <strong>₹17,636/month</strong></div>
+                    <button class="btn btn-primary">Plan This Goal</button>
+                </div>
+                <div class="goal-card custom-goal">
+                    <div class="goal-icon">🎯</div>
+                    <h4>Custom Goal</h4>
+                    <div class="custom-inputs">
+                        <input type="number" id="goalAmount" placeholder="Target Amount (₹)">
+                        <input type="number" id="goalYears" placeholder="Years to Achieve">
+                        <button class="btn btn-primary" onclick="calculateCustomGoal()">
+                            <i class="fas fa-calculator"></i> Calculate SIP
+                        </button>
+                    </div>
+                    <div class="goal-result" id="goalResult"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ WHY CHOOSE ============ -->
     <section class="why-choose" id="why-choose">
         <div class="container">
             <div class="section-header">
-                <span class="section-badge animate-on-scroll">
+                <span class="section-badge">
                     <i class="fas fa-star"></i> Why Choose Us
                 </span>
-                <h2 class="section-title animate-on-scroll">
+                <h2 class="section-title">
                     Why NandiIndia Is Your
                     <span class="gradient-text">Best Choice</span>
                 </h2>
             </div>
             <div class="why-grid">
-                <div class="why-card animate-on-scroll">
+                <div class="why-card">
                     <div class="why-icon"><i class="fas fa-user-graduate"></i></div>
                     <div class="why-content">
                         <h4>Expert Financial Guidance</h4>
                         <p>Certified financial advisors with deep market knowledge.</p>
                     </div>
                 </div>
-                <div class="why-card animate-on-scroll">
+                <div class="why-card">
                     <div class="why-icon"><i class="fas fa-handshake"></i></div>
                     <div class="why-content">
                         <h4>Trusted NJ Wealth Association</h4>
                         <p>Backed by India's largest financial distribution network.</p>
                     </div>
                 </div>
-                <div class="why-card animate-on-scroll">
+                <div class="why-card">
                     <div class="why-icon"><i class="fas fa-sliders"></i></div>
                     <div class="why-content">
                         <h4>Personalized Investment Plans</h4>
                         <p>Custom strategies based on your goals and risk profile.</p>
                     </div>
                 </div>
-                <div class="why-card animate-on-scroll">
+                <div class="why-card">
                     <div class="why-icon"><i class="fas fa-lock-open"></i></div>
                     <div class="why-content">
                         <h4>Transparent Process</h4>
                         <p>No hidden fees. Complete portfolio visibility.</p>
                     </div>
                 </div>
-                <div class="why-card animate-on-scroll">
+                <div class="why-card">
                     <div class="why-icon"><i class="fas fa-seedling"></i></div>
                     <div class="why-content">
                         <h4>Long-Term Wealth Strategy</h4>
                         <p>Focus on sustainable growth with proven approaches.</p>
                     </div>
                 </div>
-                <div class="why-card animate-on-scroll">
+                <div class="why-card">
                     <div class="why-icon"><i class="fas fa-headset"></i></div>
                     <div class="why-content">
                         <h4>Fast Client Support</h4>
@@ -1541,25 +992,115 @@
         </div>
     </section>
 
-    <!-- ============ INVESTMENT PLANS ============ -->
+    <!-- ============ RISK QUIZ ============ -->
+    <section class="risk-quiz" id="risk-quiz">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">
+                    <i class="fas fa-brain"></i> Risk Profiler
+                </span>
+                <h2 class="section-title">
+                    Discover Your
+                    <span class="gradient-text">Investor Profile</span>
+                </h2>
+                <p class="section-subtitle">Answer 5 quick questions to find the perfect investment strategy.</p>
+            </div>
+            <div class="quiz-wrapper">
+                <div class="quiz-progress">
+                    <div class="qp-bar">
+                        <div class="qp-fill" id="quizProgress"></div>
+                    </div>
+                    <span class="qp-text">Question <span id="qNum">1</span> of 5</span>
+                </div>
+                <div id="quizQuestions">
+                    <div class="quiz-q active" data-q="1">
+                        <h3>What is your primary investment goal?</h3>
+                        <div class="quiz-options">
+                            <label class="quiz-option"><input type="radio" name="q1" value="1"><span>Capital preservation (Keep money safe)</span></label>
+                            <label class="quiz-option"><input type="radio" name="q1" value="2"><span>Steady regular income</span></label>
+                            <label class="quiz-option"><input type="radio" name="q1" value="3"><span>Balanced growth & income</span></label>
+                            <label class="quiz-option"><input type="radio" name="q1" value="4"><span>Maximum wealth creation</span></label>
+                        </div>
+                    </div>
+                    <div class="quiz-q" data-q="2">
+                        <h3>How long can you keep your money invested?</h3>
+                        <div class="quiz-options">
+                            <label class="quiz-option"><input type="radio" name="q2" value="1"><span>Less than 1 year</span></label>
+                            <label class="quiz-option"><input type="radio" name="q2" value="2"><span>1 – 3 years</span></label>
+                            <label class="quiz-option"><input type="radio" name="q2" value="3"><span>3 – 7 years</span></label>
+                            <label class="quiz-option"><input type="radio" name="q2" value="4"><span>7+ years</span></label>
+                        </div>
+                    </div>
+                    <div class="quiz-q" data-q="3">
+                        <h3>If your portfolio drops 20%, what would you do?</h3>
+                        <div class="quiz-options">
+                            <label class="quiz-option"><input type="radio" name="q3" value="1"><span>Withdraw everything immediately</span></label>
+                            <label class="quiz-option"><input type="radio" name="q3" value="2"><span>Wait and monitor carefully</span></label>
+                            <label class="quiz-option"><input type="radio" name="q3" value="3"><span>Stay invested, it will recover</span></label>
+                            <label class="quiz-option"><input type="radio" name="q3" value="4"><span>Invest more at lower prices!</span></label>
+                        </div>
+                    </div>
+                    <div class="quiz-q" data-q="4">
+                        <h3>What is your monthly investment capacity?</h3>
+                        <div class="quiz-options">
+                            <label class="quiz-option"><input type="radio" name="q4" value="1"><span>₹500 – ₹2,000</span></label>
+                            <label class="quiz-option"><input type="radio" name="q4" value="2"><span>₹2,000 – ₹5,000</span></label>
+                            <label class="quiz-option"><input type="radio" name="q4" value="3"><span>₹5,000 – ₹25,000</span></label>
+                            <label class="quiz-option"><input type="radio" name="q4" value="4"><span>₹25,000+</span></label>
+                        </div>
+                    </div>
+                    <div class="quiz-q" data-q="5">
+                        <h3>How would you describe your investment experience?</h3>
+                        <div class="quiz-options">
+                            <label class="quiz-option"><input type="radio" name="q5" value="1"><span>Complete beginner</span></label>
+                            <label class="quiz-option"><input type="radio" name="q5" value="2"><span>Some basic knowledge</span></label>
+                            <label class="quiz-option"><input type="radio" name="q5" value="3"><span>Moderate experience</span></label>
+                            <label class="quiz-option"><input type="radio" name="q5" value="4"><span>Experienced investor</span></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="quiz-nav">
+                    <button class="btn btn-outline" id="quizPrev" disabled>
+                        <i class="fas fa-arrow-left"></i> Previous
+                    </button>
+                    <button class="btn btn-primary" id="quizNext">
+                        Next <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+                <div class="quiz-result" id="quizResult" style="display:none">
+                    <div class="qr-icon" id="qrIcon"></div>
+                    <h3 id="qrTitle"></h3>
+                    <p id="qrDesc"></p>
+                    <div class="qr-recommendation" id="qrRecommendation"></div>
+                    <div class="qr-actions">
+                        <a href="#contact" class="btn btn-primary">
+                            <i class="fas fa-rocket"></i> Start With This Plan
+                        </a>
+                        <button class="btn btn-outline" onclick="resetQuiz()">
+                            <i class="fas fa-redo"></i> Retake Quiz
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ PLANS ============ -->
     <section class="plans" id="plans">
         <div class="container">
             <div class="section-header">
-                <span class="section-badge animate-on-scroll">
+                <span class="section-badge">
                     <i class="fas fa-crown"></i> Investment Plans
                 </span>
-                <h2 class="section-title animate-on-scroll">
-                    Choose Your
-                    <span class="gradient-text">Investment Plan</span>
+                <h2 class="section-title">
+                    Choose Your <span class="gradient-text">Investment Plan</span>
                 </h2>
             </div>
             <div class="plans-grid">
-                <div class="plan-card animate-on-scroll">
-                    <div class="plan-header">
-                        <div class="plan-icon"><i class="fas fa-seedling"></i></div>
-                        <h3>Starter SIP Plan</h3>
-                        <p class="plan-desc">Perfect for beginners</p>
-                    </div>
+                <div class="plan-card">
+                    <div class="plan-icon"><i class="fas fa-seedling"></i></div>
+                    <h3>Starter SIP</h3>
+                    <p class="plan-desc">Perfect for beginners</p>
                     <div class="plan-price">
                         <span class="price-currency">₹</span>
                         <span class="price-amount">500</span>
@@ -1574,14 +1115,11 @@
                     </ul>
                     <a href="#contact" class="btn btn-outline btn-full">Start Now</a>
                 </div>
-
-                <div class="plan-card featured animate-on-scroll">
+                <div class="plan-card featured">
                     <div class="plan-badge">Most Popular</div>
-                    <div class="plan-header">
-                        <div class="plan-icon"><i class="fas fa-chart-line"></i></div>
-                        <h3>Growth Plan</h3>
-                        <p class="plan-desc">For serious investors</p>
-                    </div>
+                    <div class="plan-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Growth Plan</h3>
+                    <p class="plan-desc">For serious investors</p>
                     <div class="plan-price">
                         <span class="price-currency">₹</span>
                         <span class="price-amount">5,000</span>
@@ -1595,15 +1133,12 @@
                         <li><i class="fas fa-check"></i> Priority Support</li>
                         <li><i class="fas fa-check"></i> Tax Planning</li>
                     </ul>
-                    <a href="#contact" class="btn btn-primary btn-full">Start Now</a>
+                    <a href="#contact" class="btn btn-white btn-full">Start Now</a>
                 </div>
-
-                <div class="plan-card animate-on-scroll">
-                    <div class="plan-header">
-                        <div class="plan-icon"><i class="fas fa-gem"></i></div>
-                        <h3>Premium Wealth Plan</h3>
-                        <p class="plan-desc">For HNIs</p>
-                    </div>
+                <div class="plan-card">
+                    <div class="plan-icon"><i class="fas fa-gem"></i></div>
+                    <h3>Premium Wealth</h3>
+                    <p class="plan-desc">For HNIs</p>
                     <div class="plan-price">
                         <span class="price-currency">₹</span>
                         <span class="price-amount">25,000</span>
@@ -1619,13 +1154,10 @@
                     </ul>
                     <a href="#contact" class="btn btn-outline btn-full">Start Now</a>
                 </div>
-
-                <div class="plan-card animate-on-scroll">
-                    <div class="plan-header">
-                        <div class="plan-icon"><i class="fas fa-umbrella-beach"></i></div>
-                        <h3>Retirement Plan</h3>
-                        <p class="plan-desc">Secure golden years</p>
-                    </div>
+                <div class="plan-card">
+                    <div class="plan-icon"><i class="fas fa-umbrella-beach"></i></div>
+                    <h3>Retirement Plan</h3>
+                    <p class="plan-desc">Secure golden years</p>
                     <div class="plan-price">
                         <span class="price-currency">₹</span>
                         <span class="price-amount">10,000</span>
@@ -1640,13 +1172,10 @@
                     </ul>
                     <a href="#contact" class="btn btn-outline btn-full">Start Now</a>
                 </div>
-
-                <div class="plan-card animate-on-scroll">
-                    <div class="plan-header">
-                        <div class="plan-icon"><i class="fas fa-graduation-cap"></i></div>
-                        <h3>Child Future Plan</h3>
-                        <p class="plan-desc">Your child's dream</p>
-                    </div>
+                <div class="plan-card">
+                    <div class="plan-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h3>Child Future Plan</h3>
+                    <p class="plan-desc">Your child's dream</p>
                     <div class="plan-price">
                         <span class="price-currency">₹</span>
                         <span class="price-amount">3,000</span>
@@ -1665,14 +1194,18 @@
         </div>
     </section>
 
-    <!-- ============ NJ WEALTH ASSOCIATION ============ -->
+    <!-- ============ NJ WEALTH ============ -->
     <section class="nj-wealth" id="nj-wealth">
         <div class="container">
-            <div class="nj-wrapper animate-on-scroll">
+            <div class="nj-wrapper">
                 <div class="nj-content">
-                    <span class="nj-badge"><i class="fas fa-certificate"></i> Official Partner</span>
-                    <h2>Proudly Associated With <span class="gradient-text-gold">NJ Wealth</span></h2>
-                    <p>NandiIndia is proudly associated with <strong>NJ Wealth</strong>, one of India's leading financial distribution platforms with over 40,000+ partners.</p>
+                    <span class="nj-badge">
+                        <i class="fas fa-certificate"></i> Official Partner
+                    </span>
+                    <h2>Proudly Associated With
+                        <span class="gradient-text-gold">NJ Wealth</span>
+                    </h2>
+                    <p>NandiIndia is proudly associated with <strong>NJ Wealth</strong>, one of India's leading financial distribution platforms with over 40,000+ partners nationwide.</p>
                     <div class="nj-benefits">
                         <div class="nj-benefit"><i class="fas fa-lock"></i><span>Secure Investments</span></div>
                         <div class="nj-benefit"><i class="fas fa-building-columns"></i><span>Trusted Platform</span></div>
@@ -1681,18 +1214,15 @@
                     </div>
                 </div>
                 <div class="nj-visual">
-                    <div class="nj-logo-container">
-                        <div class="nj-glow"></div>
-                        <div class="nj-logo-box">
-                            <i class="fas fa-building-columns"></i>
-                            <span>NJ Wealth</span>
-                            <small>India's Leading Financial Platform</small>
-                        </div>
-                        <div class="nj-partner-badge">
-                            <i class="fas fa-handshake"></i>
-                            <span>×</span>
-                            <strong>NandiIndia</strong>
-                        </div>
+                    <div class="nj-logo-box">
+                        <i class="fas fa-building-columns"></i>
+                        <span>NJ Wealth</span>
+                        <small>India's Leading Financial Platform</small>
+                    </div>
+                    <div class="nj-partner-badge">
+                        <i class="fas fa-handshake"></i>
+                        <span>×</span>
+                        <strong>NandiIndia</strong>
                     </div>
                 </div>
             </div>
@@ -1703,15 +1233,15 @@
     <section class="testimonials" id="testimonials">
         <div class="container">
             <div class="section-header">
-                <span class="section-badge animate-on-scroll">
+                <span class="section-badge">
                     <i class="fas fa-quote-left"></i> Testimonials
                 </span>
-                <h2 class="section-title animate-on-scroll">
+                <h2 class="section-title">
                     What Our Clients
                     <span class="gradient-text">Say About Us</span>
                 </h2>
             </div>
-            <div class="testimonial-slider" id="testimonialSlider">
+            <div class="testimonial-slider">
                 <div class="testimonial-track" id="testimonialTrack">
                     <div class="testimonial-card">
                         <div class="tc-quote"><i class="fas fa-quote-left"></i></div>
@@ -1759,7 +1289,7 @@
                     </div>
                     <div class="testimonial-card">
                         <div class="tc-quote"><i class="fas fa-quote-left"></i></div>
-                        <p class="tc-text">"Started with ₹2000/month SIP and now my corpus has grown beyond expectations. NandiIndia made it simple and accessible."</p>
+                        <p class="tc-text">"Started with ₹2000/month SIP. My corpus has grown beyond expectations. NandiIndia made it simple and accessible."</p>
                         <div class="tc-rating">
                             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                         </div>
@@ -1770,63 +1300,30 @@
                     </div>
                 </div>
                 <div class="testimonial-controls">
-                    <button class="tc-btn tc-prev" id="tcPrev"><i class="fas fa-chevron-left"></i></button>
+                    <button class="tc-btn" id="tcPrev"><i class="fas fa-chevron-left"></i></button>
                     <div class="tc-dots" id="tcDots"></div>
-                    <button class="tc-btn tc-next" id="tcNext"><i class="fas fa-chevron-right"></i></button>
-                </div>
-            </div>
-
-            <!-- Video Testimonials -->
-            <div class="video-testimonials animate-on-scroll">
-                <h3 class="vt-title">Watch Client Stories</h3>
-                <div class="vt-grid">
-                    <div class="vt-card">
-                        <div class="vt-thumbnail">
-                            <i class="fas fa-play-circle"></i>
-                            <span>Coming Soon</span>
-                        </div>
-                        <h4>Rajesh's Investment Journey</h4>
-                        <p>How SIP changed his financial life</p>
-                    </div>
-                    <div class="vt-card">
-                        <div class="vt-thumbnail">
-                            <i class="fas fa-play-circle"></i>
-                            <span>Coming Soon</span>
-                        </div>
-                        <h4>Priya's Retirement Planning</h4>
-                        <p>Securing her golden years</p>
-                    </div>
-                    <div class="vt-card">
-                        <div class="vt-thumbnail">
-                            <i class="fas fa-play-circle"></i>
-                            <span>Coming Soon</span>
-                        </div>
-                        <h4>Amit's Child Education Fund</h4>
-                        <p>Building his daughter's future</p>
-                    </div>
+                    <button class="tc-btn" id="tcNext"><i class="fas fa-chevron-right"></i></button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ============ BLOG / TIPS ============ -->
+    <!-- ============ BLOG ============ -->
     <section class="blog" id="blog">
         <div class="container">
             <div class="section-header">
-                <span class="section-badge animate-on-scroll">
+                <span class="section-badge">
                     <i class="fas fa-lightbulb"></i> Financial Tips
                 </span>
-                <h2 class="section-title animate-on-scroll">
+                <h2 class="section-title">
                     Smart Investment
                     <span class="gradient-text">Tips & Insights</span>
                 </h2>
             </div>
             <div class="blog-grid">
-                <div class="blog-card animate-on-scroll">
+                <div class="blog-card">
                     <div class="blog-img">
-                        <div class="blog-img-placeholder">
-                            <i class="fas fa-piggy-bank"></i>
-                        </div>
+                        <div class="blog-img-placeholder"><i class="fas fa-piggy-bank"></i></div>
                         <span class="blog-category">SIP</span>
                     </div>
                     <div class="blog-content">
@@ -1835,15 +1332,13 @@
                             <span><i class="fas fa-clock"></i> 5 min read</span>
                         </div>
                         <h4>Why SIP is the Best Way to Build Wealth</h4>
-                        <p>Learn how systematic investment plans can help you create a massive corpus over time with the power of compounding.</p>
+                        <p>Learn how systematic investment plans help you create massive corpus over time.</p>
                         <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-                <div class="blog-card animate-on-scroll">
+                <div class="blog-card">
                     <div class="blog-img">
-                        <div class="blog-img-placeholder">
-                            <i class="fas fa-file-invoice-dollar"></i>
-                        </div>
+                        <div class="blog-img-placeholder"><i class="fas fa-file-invoice-dollar"></i></div>
                         <span class="blog-category">Tax Saving</span>
                     </div>
                     <div class="blog-content">
@@ -1851,16 +1346,14 @@
                             <span><i class="fas fa-calendar"></i> Feb 2025</span>
                             <span><i class="fas fa-clock"></i> 4 min read</span>
                         </div>
-                        <h4>Top 5 Tax Saving Investment Options for 2025</h4>
-                        <p>Maximize your tax savings under Section 80C with these smart investment options.</p>
+                        <h4>Top 5 Tax Saving Options for 2025</h4>
+                        <p>Maximize your tax savings under Section 80C with smart investment options.</p>
                         <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-                <div class="blog-card animate-on-scroll">
+                <div class="blog-card">
                     <div class="blog-img">
-                        <div class="blog-img-placeholder">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
+                        <div class="blog-img-placeholder"><i class="fas fa-graduation-cap"></i></div>
                         <span class="blog-category">Education</span>
                     </div>
                     <div class="blog-content">
@@ -1869,7 +1362,7 @@
                             <span><i class="fas fa-clock"></i> 6 min read</span>
                         </div>
                         <h4>How to Plan Your Child's Education Fund</h4>
-                        <p>Start early and let compounding work its magic for your child's bright future.</p>
+                        <p>Start early and let compounding work for your child's bright future.</p>
                         <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -1877,69 +1370,69 @@
         </div>
     </section>
 
-    <!-- ============ FAQ SECTION ============ -->
+    <!-- ============ FAQ ============ -->
     <section class="faq" id="faq">
         <div class="container">
             <div class="section-header">
-                <span class="section-badge animate-on-scroll">
+                <span class="section-badge">
                     <i class="fas fa-circle-question"></i> FAQ
                 </span>
-                <h2 class="section-title animate-on-scroll">
+                <h2 class="section-title">
                     Frequently Asked
                     <span class="gradient-text">Questions</span>
                 </h2>
             </div>
-            <div class="faq-grid animate-on-scroll">
+            <div class="faq-grid">
                 <div class="faq-item">
                     <button class="faq-question"><span>What is SIP?</span><i class="fas fa-plus"></i></button>
-                    <div class="faq-answer"><p>SIP (Systematic Investment Plan) is a method of investing a fixed amount regularly in mutual funds. It helps in building wealth over time through compounding and rupee cost averaging. You can start with as low as ₹500/month.</p></div>
+                    <div class="faq-answer"><p>SIP (Systematic Investment Plan) is a method of investing a fixed amount regularly in mutual funds. Start with as low as ₹500/month.</p></div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question"><span>How much should I invest?</span><i class="fas fa-plus"></i></button>
-                    <div class="faq-answer"><p>The ideal investment depends on your goals, income, and expenses. Try to invest at least 20-30% of your income. Our advisors can help you determine the right amount.</p></div>
+                    <div class="faq-answer"><p>Ideally invest 20-30% of your income. Our advisors can help determine the right amount based on your goals.</p></div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question"><span>Is mutual fund safe?</span><i class="fas fa-plus"></i></button>
-                    <div class="faq-answer"><p>Mutual funds are regulated by SEBI and managed by professional fund managers. While all investments carry some risk, diversification reduces it. Long-term SIP investments have historically given good returns.</p></div>
+                    <div class="faq-answer"><p>Mutual funds are regulated by SEBI and managed by professional fund managers. Long-term SIP investments have historically given good returns.</p></div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question"><span>Can I withdraw anytime?</span><i class="fas fa-plus"></i></button>
-                    <div class="faq-answer"><p>Yes, most open-ended mutual fund schemes allow withdrawal anytime. Some schemes like ELSS have a 3-year lock-in. Exit loads may apply for early withdrawals in some schemes.</p></div>
+                    <div class="faq-answer"><p>Yes, most open-ended mutual fund schemes allow withdrawal anytime. ELSS has a 3-year lock-in period.</p></div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-question"><span>How do I start investing with NandiIndia?</span><i class="fas fa-plus"></i></button>
-                    <div class="faq-answer"><p>Fill our contact form or call us. Our advisor will understand your goals, complete KYC, and help you start investing within 24-48 hours. You can also WhatsApp us.</p></div>
+                    <button class="faq-question"><span>How do I start investing?</span><i class="fas fa-plus"></i></button>
+                    <div class="faq-answer"><p>Fill our contact form or call us. Our advisor will understand your goals, complete KYC, and help you start within 24-48 hours.</p></div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question"><span>What documents do I need?</span><i class="fas fa-plus"></i></button>
-                    <div class="faq-answer"><p>PAN card, Aadhaar card, cancelled cheque or bank statement, and passport-size photo. KYC can be done online. Our team guides you through every step.</p></div>
+                    <div class="faq-answer"><p>PAN card, Aadhaar card, cancelled cheque, and passport-size photo. KYC can be done online.</p></div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question"><span>What is the role of NJ Wealth?</span><i class="fas fa-plus"></i></button>
-                    <div class="faq-answer"><p>NJ Wealth is India's largest financial distribution platform. NandiIndia operates as an associated partner, getting access to wide range of mutual funds, research tools, and technology.</p></div>
+                    <div class="faq-answer"><p>NJ Wealth is India's largest financial distribution platform. NandiIndia operates as an associated partner with access to wide range of mutual funds and technology.</p></div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-question"><span>What returns can I expect from SIP?</span><i class="fas fa-plus"></i></button>
-                    <div class="faq-answer"><p>Historical data shows equity mutual funds have given 12-15% CAGR over 10+ years. However, returns are market-linked and not guaranteed. Long-term investing reduces risk significantly.</p></div>
+                    <button class="faq-question"><span>What returns can I expect?</span><i class="fas fa-plus"></i></button>
+                    <div class="faq-answer"><p>Equity mutual funds have historically given 12-15% CAGR over 10+ years. Returns are market-linked and not guaranteed.</p></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ============ CONTACT SECTION ============ -->
+    <!-- ============ CONTACT ============ -->
     <section class="contact" id="contact">
         <div class="container">
             <div class="section-header">
-                <span class="section-badge animate-on-scroll">
+                <span class="section-badge">
                     <i class="fas fa-envelope"></i> Contact Us
                 </span>
-                <h2 class="section-title animate-on-scroll">
+                <h2 class="section-title">
                     Let's Start Your
                     <span class="gradient-text">Investment Journey</span>
                 </h2>
             </div>
             <div class="contact-grid">
-                <div class="contact-form-wrapper animate-on-scroll">
+                <div class="contact-form-wrapper">
                     <form class="contact-form" id="contactForm">
                         <div class="form-group">
                             <div class="form-icon"><i class="fas fa-user"></i></div>
@@ -1979,8 +1472,7 @@
                                 <option value="2000-5000">₹2,000 - ₹5,000</option>
                                 <option value="5000-10000">₹5,000 - ₹10,000</option>
                                 <option value="10000-25000">₹10,000 - ₹25,000</option>
-                                <option value="25000-50000">₹25,000 - ₹50,000</option>
-                                <option value="50000+">₹50,000+</option>
+                                <option value="25000+">₹25,000+</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -2001,13 +1493,13 @@
                             <button type="submit" class="btn btn-primary btn-full">
                                 <i class="fas fa-paper-plane"></i> Submit Enquiry
                             </button>
-                            <a href="https://wa.me/919876543210?text=Hi%20NandiIndia%2C%20I%20want%20to%20start%20investing" class="btn btn-whatsapp btn-full" target="_blank">
+                            <a href="https://wa.me/919876543210" class="btn btn-whatsapp btn-full" target="_blank">
                                 <i class="fab fa-whatsapp"></i> WhatsApp Us
                             </a>
                         </div>
                     </form>
                 </div>
-                <div class="contact-info animate-on-scroll">
+                <div class="contact-info">
                     <div class="ci-card">
                         <div class="ci-icon"><i class="fas fa-phone-volume"></i></div>
                         <h4>Call Us</h4>
@@ -2023,7 +1515,7 @@
                     <div class="ci-card">
                         <div class="ci-icon"><i class="fas fa-location-dot"></i></div>
                         <h4>Visit Us</h4>
-                        <p>NandiIndia Office,<br>Your City, Gujarat,<br>India - 380000</p>
+                        <p>NandiIndia Office,<br>Gujarat, India - 380000</p>
                     </div>
                     <div class="ci-card">
                         <div class="ci-icon"><i class="fas fa-clock"></i></div>
@@ -2032,7 +1524,7 @@
                         <p>Sunday: Closed</p>
                     </div>
                     <div class="ci-map">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d235013.74801994965!2d72.43965519261498!3d23.020474499814034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e848aba5bd449%3A0x4fcedd11614f6516!2sAhmedabad%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" width="100%" height="200" style="border:0; border-radius: 12px;" allowfullscreen="" loading="lazy"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d235013.74801994965!2d72.43965519261498!3d23.020474499814034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e848aba5bd449%3A0x4fcedd11614f6516!2sAhmedabad%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" width="100%" height="200" style="border:0;border-radius:12px;" allowfullscreen="" loading="lazy"></iframe>
                     </div>
                 </div>
             </div>
@@ -2042,8 +1534,8 @@
     <!-- ============ FOOTER ============ -->
     <footer class="footer">
         <div class="footer-wave">
-            <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
-                <path d="M0,40 C150,80 350,0 600,40 C850,80 1050,0 1200,40 C1350,80 1440,20 1440,40 L1440,100 L0,100 Z" fill="currentColor"/>
+            <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+                <path d="M0,40 C150,80 350,0 600,40 C850,80 1050,0 1200,40 C1350,80 1440,20 1440,40 L1440,80 L0,80 Z" fill="currentColor"/>
             </svg>
         </div>
         <div class="container">
@@ -2056,7 +1548,7 @@
                             <span class="logo-sub">Associated With NJ Wealth</span>
                         </div>
                     </div>
-                    <p>Your trusted financial advisory platform. Building wealth through smart investments and comprehensive planning.</p>
+                    <p>Your trusted financial advisory platform. Building wealth through smart investments.</p>
                     <div class="footer-social">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
@@ -2073,7 +1565,6 @@
                         <li><a href="#services">Services</a></li>
                         <li><a href="#calculator">Calculators</a></li>
                         <li><a href="#plans">Plans</a></li>
-                        <li><a href="#blog">Tips & Blog</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
@@ -2093,18 +1584,16 @@
                     <ul class="footer-contact">
                         <li><i class="fas fa-phone"></i><span>+91 98765 43210</span></li>
                         <li><i class="fas fa-envelope"></i><span>info@nandiindia.com</span></li>
-                        <li><i class="fas fa-location-dot"></i><span>NandiIndia, Gujarat, India</span></li>
+                        <li><i class="fas fa-location-dot"></i><span>Gujarat, India</span></li>
                     </ul>
                     <div class="footer-clock">
                         <i class="fas fa-clock"></i>
-                        <span id="liveClock">Loading...</span>
+                        <span id="liveClock">--:--:--</span>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <div class="footer-bottom-left">
-                    <p>© 2026 NandiIndia | Associated With NJ Wealth | All Rights Reserved</p>
-                </div>
+                <p>© 2026 NandiIndia | Associated With NJ Wealth | All Rights Reserved</p>
                 <div class="footer-bottom-right">
                     <a href="#">Privacy Policy</a>
                     <a href="#">Terms & Conditions</a>
@@ -2114,23 +1603,19 @@
         </div>
     </footer>
 
-    <!-- ============ MOBILE STICKY CTA ============ -->
+    <!-- ============ MOBILE CTA ============ -->
     <div class="mobile-cta" id="mobileCta">
         <a href="tel:+919876543210" class="mcta-btn mcta-call">
-            <i class="fas fa-phone"></i>
-            <span>Call</span>
+            <i class="fas fa-phone"></i><span>Call</span>
         </a>
         <a href="https://wa.me/919876543210" class="mcta-btn mcta-whatsapp" target="_blank">
-            <i class="fab fa-whatsapp"></i>
-            <span>WhatsApp</span>
+            <i class="fab fa-whatsapp"></i><span>WhatsApp</span>
         </a>
         <a href="#calculator" class="mcta-btn mcta-calc">
-            <i class="fas fa-calculator"></i>
-            <span>Calculate</span>
+            <i class="fas fa-calculator"></i><span>Calculate</span>
         </a>
         <a href="#contact" class="mcta-btn mcta-enquiry">
-            <i class="fas fa-paper-plane"></i>
-            <span>Enquiry</span>
+            <i class="fas fa-paper-plane"></i><span>Enquiry</span>
         </a>
     </div>
 
@@ -2150,34 +1635,63 @@
     </div>
 
     <!-- ============ WHATSAPP FLOAT ============ -->
-    <a href="https://wa.me/919876543210?text=Hi%20NandiIndia%2C%20I%20want%20to%20know%20about%20SIP" class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/919876543210" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
         <span class="wp-tooltip">Chat with us!</span>
     </a>
 
-    <!-- ============ EXIT INTENT POPUP ============ -->
+    <!-- ============ SIDEBAR ENQUIRY ============ -->
+    <div class="sidebar-enquiry" id="sidebarEnquiry">
+        <button class="se-toggle" id="seToggle">
+            <i class="fas fa-headset"></i>
+            <span>Help?</span>
+        </button>
+        <div class="se-panel" id="sePanel">
+            <h4>Quick Enquiry</h4>
+            <p>We reply within 30 minutes!</p>
+            <input type="text" id="seName" placeholder="Your Name">
+            <input type="tel" id="sePhone" placeholder="Phone Number">
+            <button class="btn btn-primary btn-full" id="seSend">
+                <i class="fas fa-paper-plane"></i> Send
+            </button>
+            <div class="se-divider">or</div>
+            <a href="https://wa.me/919876543210" class="btn btn-whatsapp btn-full" target="_blank">
+                <i class="fab fa-whatsapp"></i> WhatsApp Now
+            </a>
+        </div>
+    </div>
+
+    <!-- ============ COOKIE BAR ============ -->
+    <div class="cookie-bar" id="cookieBar">
+        <p><i class="fas fa-cookie-bite"></i> We use cookies to improve your experience. <a href="#">Learn more</a></p>
+        <div class="cookie-btns">
+            <button class="btn btn-primary btn-sm" id="cookieAccept">Accept All</button>
+            <button class="btn btn-outline btn-sm" id="cookieDecline">Decline</button>
+        </div>
+    </div>
+
+    <!-- ============ EXIT POPUP ============ -->
     <div class="exit-popup" id="exitPopup">
         <div class="exit-overlay" id="exitOverlay"></div>
         <div class="exit-modal">
             <button class="exit-close" id="exitClose"><i class="fas fa-times"></i></button>
-            <div class="exit-content">
-                <div class="exit-icon"><i class="fas fa-gift"></i></div>
-                <h3>Wait! Don't Leave Empty Handed</h3>
-                <p>Get a <strong>FREE Investment Consultation</strong> worth ₹999!</p>
-                <div class="exit-form">
-                    <input type="text" placeholder="Your Name" id="exitName">
-                    <input type="tel" placeholder="Phone Number" id="exitPhone">
-                    <button class="btn btn-primary btn-full" id="exitSubmit">
-                        <i class="fas fa-gift"></i> Claim Free Consultation
-                    </button>
-                </div>
-                <span class="exit-note">*Limited time offer. No spam, we promise.</span>
+            <div class="exit-icon"><i class="fas fa-gift"></i></div>
+            <h3>Wait! Don't Leave Empty Handed</h3>
+            <p>Get a <strong>FREE Investment Consultation</strong> worth ₹999!</p>
+            <div class="exit-form">
+                <input type="text" placeholder="Your Name" id="exitName">
+                <input type="tel" placeholder="Phone Number" id="exitPhone">
+                <button class="btn btn-primary btn-full" id="exitSubmit">
+                    <i class="fas fa-gift"></i> Claim Free Consultation
+                </button>
             </div>
+            <span class="exit-note">*Limited time offer. No spam, we promise.</span>
         </div>
     </div>
 
-    <script src="js/app.js"></script>
-    <script src="js/calculator.js"></script>
-    <script src="js/animations.js"></script>
+    <!-- Scripts -->
+    <script src="js/app.js" defer></script>
+    <script src="js/calculator.js" defer></script>
+    <script src="js/animations.js" defer></script>
 </body>
 </html>
