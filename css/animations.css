@@ -1,0 +1,142 @@
+/* ============================================
+   NANDIINDIA - ANIMATIONS STYLESHEET
+   ============================================ */
+
+/* ===== FADE IN UP ===== */
+.animate-fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 0.8s ease forwards;
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== FADE IN LEFT ===== */
+.animate-fade-left {
+    opacity: 0;
+    transform: translateX(50px);
+    animation: fadeLeft 0.8s ease forwards;
+}
+
+@keyframes fadeLeft {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ===== ANIMATION DELAYS ===== */
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+.delay-5 { animation-delay: 0.5s; }
+.delay-6 { animation-delay: 0.6s; }
+
+/* ===== SCROLL ANIMATIONS ===== */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.animate-on-scroll.animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===== STAGGER CHILDREN ===== */
+.services-grid .service-card:nth-child(1) { transition-delay: 0.05s; }
+.services-grid .service-card:nth-child(2) { transition-delay: 0.1s; }
+.services-grid .service-card:nth-child(3) { transition-delay: 0.15s; }
+.services-grid .service-card:nth-child(4) { transition-delay: 0.2s; }
+.services-grid .service-card:nth-child(5) { transition-delay: 0.25s; }
+.services-grid .service-card:nth-child(6) { transition-delay: 0.3s; }
+.services-grid .service-card:nth-child(7) { transition-delay: 0.35s; }
+.services-grid .service-card:nth-child(8) { transition-delay: 0.4s; }
+
+.about-cards .about-card:nth-child(1) { transition-delay: 0.05s; }
+.about-cards .about-card:nth-child(2) { transition-delay: 0.1s; }
+.about-cards .about-card:nth-child(3) { transition-delay: 0.15s; }
+.about-cards .about-card:nth-child(4) { transition-delay: 0.2s; }
+
+.why-grid .why-card:nth-child(1) { transition-delay: 0.05s; }
+.why-grid .why-card:nth-child(2) { transition-delay: 0.1s; }
+.why-grid .why-card:nth-child(3) { transition-delay: 0.15s; }
+.why-grid .why-card:nth-child(4) { transition-delay: 0.2s; }
+.why-grid .why-card:nth-child(5) { transition-delay: 0.25s; }
+.why-grid .why-card:nth-child(6) { transition-delay: 0.3s; }
+
+.plans-grid .plan-card:nth-child(1) { transition-delay: 0.05s; }
+.plans-grid .plan-card:nth-child(2) { transition-delay: 0.1s; }
+.plans-grid .plan-card:nth-child(3) { transition-delay: 0.15s; }
+.plans-grid .plan-card:nth-child(4) { transition-delay: 0.2s; }
+.plans-grid .plan-card:nth-child(5) { transition-delay: 0.25s; }
+
+/* ===== HOVER ANIMATIONS ===== */
+@keyframes scaleIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes slideInRight {
+    from { transform: translateX(40px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInLeft {
+    from { transform: translateX(-40px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes bounceIn {
+    0% { transform: scale(0.3); opacity: 0; }
+    50% { transform: scale(1.05); }
+    70% { transform: scale(0.9); }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* ===== COUNTER ANIMATION ===== */
+.stat-number {
+    transition: all 0.1s ease;
+}
+
+/* ===== SHIMMER EFFECT ===== */
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+/* ===== GRADIENT ANIMATION ===== */
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .animate-on-scroll {
+        opacity: 1;
+        transform: none;
+    }
+
+    .animate-fade-up,
+    .animate-fade-left {
+        opacity: 1;
+        transform: none;
+    }
+}
